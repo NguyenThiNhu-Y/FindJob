@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using FindJob.Permissions;
 using FindJob.Posts.Dtos;
 using Volo.Abp.Application.Dtos;
@@ -21,5 +23,46 @@ namespace FindJob.Posts
         {
             _repository = repository;
         }
-    }
+
+        public async Task<PagedResultDto<PostDto>> GetListPostAsync(GetInputPost input)
+        {
+            
+            var fields = await _repository.GetListPostAsync(
+                input.SkipCount,
+                input.MaxResultCount,
+                input.Sorting,
+                input.Filter
+            );
+
+            List<PostDto> fieldsDto = new List<PostDto>();
+            
+            foreach (var item in fields)
+            {
+                PostDto fieldDto = new PostDto();
+                fieldDto.Id = item.Id;
+                fieldDto.Name = item.Name;
+                fieldDto.IdParentField = item.IdParentField;
+                if (item.IdParentField.HasValue)
+                {
+                    fieldDto.ParentField = (await _repository.FindAsync((Guid)item.IdParentField)).Name;
+                }
+                else
+                {
+                    fieldDto.ParentField = "";
+                }
+                fieldsDto.Add(fieldDto);
+
+
+            }
+
+            var totalCount = input.Filter == null
+                ? await _repository.CountAsync()
+                : await _repository.CountAsync(
+                    field => field.Name.Contains(input.Filter));
+
+            return new PagedResultDto<FieldDto>(
+                totalCount,
+                fieldsDto
+            );
+        }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using FindJob.Posts.Dtos;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
@@ -13,6 +14,6 @@ namespace FindJob.Posts
             CreateUpdatePostDto,
             CreateUpdatePostDto>
     {
-
+        Task<PagedResultDto<PostDto>> GetListPostAsync(GetInputPost input);
     }
 }
