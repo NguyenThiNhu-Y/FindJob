@@ -1,0 +1,31 @@
+{
+  "culture": "zh-Hans",
+  "texts": {
+    "Menu:Home": "首页",
+    "Welcome": "欢迎",
+    "LongWelcomeMessage": "欢迎来到该应用程序. 这是一个基于ABP框架的启动项目. 有关更多信息, 请访问 abp.io.",
+    "Permission:Field": "Field",
+    "Permission:Create": "Create",
+    "Permission:Update": "Update",
+    "Permission:Delete": "Delete",
+    "Menu:Field": "MenuField",
+    "Field": "Field",
+    "FieldName": "FieldName",
+    "FieldIdParentField": "FieldIdParentField",
+    "CreateField": "CreateField",
+    "EditField": "EditField",
+    "FieldDeletionConfirmationMessage": "Are you sure to delete the field {0}?",
+    "SuccessfullyDeleted": "Successfully deleted",
+    "Permission:Post": "Post",
+    "Menu:Post": "MenuPost",
+    "Post": "Post",
+    "PostContent": "PostContent",
+    "PostStatus": "PostStatus",
+    "PostIdUser": "PostIdUser",
+    "PostIdField": "PostIdField",
+    "CreatePost": "CreatePost",
+    "EditPost": "EditPost",
+    "PostDeletionConfirmationMessage": "Are you sure to delete the post {0}?",
+    "PostFileName": "PostFileName"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "culture": "zh-Hant",
+  "texts": {
+    "Menu:Home": "首頁",
+    "Welcome": "歡迎",
+    "LongWelcomeMessage": "歡迎來到此應用程式. 這是一個基於ABP框架的起始專案. 有關更多訊息, 請瀏覽 abp.io.",
+    "Permission:Field": "Field",
+    "Permission:Create": "Create",
+    "Permission:Update": "Update",
+    "Permission:Delete": "Delete",
+    "Menu:Field": "MenuField",
+    "Field": "Field",
+    "FieldName": "FieldName",
+    "FieldIdParentField": "FieldIdParentField",
+    "CreateField": "CreateField",
+    "EditField": "EditField",
+    "FieldDeletionConfirmationMessage": "Are you sure to delete the field {0}?",
+    "SuccessfullyDeleted": "Successfully deleted",
+    "Permission:Post": "Post",
+    "Menu:Post": "MenuPost",
+    "Post": "Post",
+    "PostContent": "PostContent",
+    "PostStatus": "PostStatus",
+    "PostIdUser": "PostIdUser",
+    "PostIdField": "PostIdField",
+    "CreatePost": "CreatePost",
+    "EditPost": "EditPost",
+    "PostDeletionConfirmationMessage": "Are you sure to delete the post {0}?",
+    "PostFileName": "PostFileName"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "culture": "de-DE",
+  "texts": {
+    "Menu:Home": "Home",
+    "Welcome": "Willkommen",
+    "LongWelcomeMessage": "Willkommen bei der Anwendung. Dies ist ein Startup-Projekt, das auf dem ABP-Framework basiert. Weitere Informationen finden Sie unter abp.io.",
+    "Permission:Field": "Field",
+    "Permission:Create": "Create",
+    "Permission:Update": "Update",
+    "Permission:Delete": "Delete",
+    "Menu:Field": "MenuField",
+    "Field": "Field",
+    "FieldName": "FieldName",
+    "FieldIdParentField": "FieldIdParentField",
+    "CreateField": "CreateField",
+    "EditField": "EditField",
+    "FieldDeletionConfirmationMessage": "Are you sure to delete the field {0}?",
+    "SuccessfullyDeleted": "Successfully deleted",
+    "Permission:Post": "Post",
+    "Menu:Post": "MenuPost",
+    "Post": "Post",
+    "PostContent": "PostContent",
+    "PostStatus": "PostStatus",
+    "PostIdUser": "PostIdUser",
+    "PostIdField": "PostIdField",
+    "CreatePost": "CreatePost",
+    "EditPost": "EditPost",
+    "PostDeletionConfirmationMessage": "Are you sure to delete the post {0}?",
+    "PostFileName": "PostFileName"
+  }
+}
