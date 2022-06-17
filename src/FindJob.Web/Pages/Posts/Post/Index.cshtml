@@ -32,13 +32,16 @@
                 <abp-card-title>@L["Post"]</abp-card-title>
             </abp-column>
             <abp-column size-md="_6" class="text-end">
-			    @if (await Authorization.IsGrantedAsync(FindJobPermissions.Post.Create))
+                @if (await Authorization.IsGrantedAsync(FindJobPermissions.Post.Create))
                 {
-                <abp-button id="NewPostButton"
-                            text="@L["CreatePost"].Value"
-                            icon="plus"
-                            button-type="Primary" />
+                    
+                    <abp-button id="NewPostButton"
+                                text="@L["CreatePost"].Value"
+                                icon="plus"
+                                button-type="Primary"
+                                onclick="location.href='/Posts/Post/CreateModal'" />
                 }
+
             </abp-column>
         </abp-row>
     </abp-card-header>
