@@ -15,5 +15,7 @@ namespace FindJob.Posts.Dtos
         public Guid IdField { get; set; }
 
         public string FileName { get; set; }
+        public string FieldName { get; set; }
+        public string FullName { get; set; }
     }
 }

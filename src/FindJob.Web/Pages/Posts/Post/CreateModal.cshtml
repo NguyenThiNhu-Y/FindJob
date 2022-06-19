@@ -17,7 +17,7 @@
 }
 
 
-<form method="post" asp-page="/Posts/Post/CreateModal">
+<form method="post" asp-page="/Posts/Post/CreateModal" enctype="multipart/form-data">
     <abp-card size="ExtraLarge">
         <abp-card-header>
             <abp-row>
@@ -29,6 +29,10 @@
         <abp-card-body>
 
             <abp-select asp-for="ViewModel.IdField" asp-items="Model.ListIdParent" />
+            <div class="mb-3">
+                <label class="form-label">@L["File"]</label>
+                <input class="form-control" type="file" name="file" />
+            </div>
             <div class="mb-3">
                 <label class="form-label">@L["Content"]</label>
                 <textarea asp-for="ViewModel.Content" id="summernote" rows="3"></textarea>

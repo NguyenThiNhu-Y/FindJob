@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using FindJob.Fields;
 using System.Linq;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
+using System;
 
 namespace FindJob.Web.Pages.Posts.Post
 {
@@ -19,12 +23,14 @@ namespace FindJob.Web.Pages.Posts.Post
 
         private readonly IPostAppService _service;
         private readonly IFieldRepository _fieldRepository;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
 
-        public CreateModalModel(IPostAppService service, IFieldRepository fieldRepository)
+        public CreateModalModel(IPostAppService service, IFieldRepository fieldRepository, IWebHostEnvironment hostEnvironment)
         {
             _service = service;
             _fieldRepository = fieldRepository;
+            _hostEnvironment = hostEnvironment;
         }
         public virtual async Task OnGetAsync()
         {
@@ -49,11 +55,28 @@ namespace FindJob.Web.Pages.Posts.Post
 
         }
 
-        public virtual async Task<IActionResult> OnPostAsync()
+        public virtual async Task<IActionResult> OnPostAsync(IFormFile file)
         {
             var dto = ObjectMapper.Map<CreateEditPostViewModel, CreateUpdatePostDto>(ViewModel);
+
+            if (file != null)
+            {
+                var extension = Path.GetExtension(file.FileName).ToLower();
+                var wwwRootPath = _hostEnvironment.WebRootPath;
+                var filename = "Post" + DateTime.Now.ToString("yymmssfff") + extension;
+                var image = DefaultFile.UploadFile + filename;
+                var path = Path.Combine(wwwRootPath + image);
+
+
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+                dto.FileName = filename;
+            }
+            dto.IdUser = (Guid)CurrentUser.Id;
             await _service.CreateAsync(dto);
-            return NoContent();
+            return RedirectToAction("Post", "Posts");
         }
     }
 }

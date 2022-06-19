@@ -40,6 +40,7 @@
     <ProjectReference Include="..\FindJob.Application\FindJob.Application.csproj" />
     <ProjectReference Include="..\FindJob.HttpApi\FindJob.HttpApi.csproj" />
     <ProjectReference Include="..\FindJob.EntityFrameworkCore\FindJob.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\Indo.Abp.AspNetCore.Mvc.UI.Theme.AdminLTE\Indo.Abp.AspNetCore.Mvc.UI.Theme.AdminLTE.csproj" />
     <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic" Version="4.4.3" />
     <PackageReference Include="Volo.Abp.Autofac" Version="4.4.3" />
     <PackageReference Include="Volo.Abp.Swashbuckle" Version="4.4.3" />
@@ -49,6 +50,10 @@
     <PackageReference Include="Volo.Abp.Account.Web.IdentityServer" Version="4.4.3" />
     <PackageReference Include="Volo.Abp.TenantManagement.Web" Version="4.4.3" />
     <PackageReference Include="Volo.Abp.SettingManagement.Web" Version="4.4.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Files\" />
   </ItemGroup>
 
 </Project>

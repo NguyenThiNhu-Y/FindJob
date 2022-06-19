@@ -1,21 +1,72 @@
+var dataTable;
+var l;
+var service
 $(function () {
 
-    var l = abp.localization.getResource('FindJob');
+    l = abp.localization.getResource('FindJob');
 
-    var service = findJob.posts.post;
+    service = findJob.posts.post;
     var createModal = new abp.ModalManager(abp.appPath + 'Posts/Post/CreateModal');
     var editModal = new abp.ModalManager(abp.appPath + 'Posts/Post/EditModal');
 
-    var dataTable = $('#PostTable').DataTable(abp.libs.datatables.normalizeConfiguration({
+    dataTable = $('#PostTable').DataTable(abp.libs.datatables.normalizeConfiguration({
         processing: true,
         serverSide: true,
         paging: true,
         searching: false,
         autoWidth: false,
         scrollCollapse: true,
-        order: [[0, "asc"]],
-        ajax: abp.libs.datatables.createAjax(service.getList),
+        order: [[1, "asc"]],
+        ajax: abp.libs.datatables.createAjax(service.getListPost),
         columnDefs: [
+            {
+                title: l('Index'),
+                orderable: false,
+                render: function (data, type, row, meta) {
+                    return meta.row + meta.settings._iDisplayStart + 1;
+                }
+            },
+            //{
+            //    title: l('PostContent'),
+            //    data: "content"
+            //},
+            
+            //{
+            //    title: l('PostIdUser'),
+            //    data: "idUser"
+            //},
+            {
+                title: l('FullName'),
+                data: "fullName"
+            },
+            //{
+            //    title: l('PostIdField'),
+            //    data: "idField"
+            //},
+            {
+                title: l('FieldName'),
+                data: "fieldName"
+            },
+            {
+                title: l('PostFileName'),
+                data: "fileName"
+            },
+            {
+                title: l('PostStatus'),
+                data: { status: "status", id: "id" },
+                render: function (data) {
+
+                    var check = '';
+                    if (data.status == 1)
+                        check = "checked";
+                    var str = '<label class="switch">' +
+                        `<input type = "checkbox" id="${data.id}" ${check} onclick="ChangeStatus(this.id,${data.status})">` +
+                        '<span class="slider round"></span>' +
+                        '</label >';
+                    return str;
+
+                }
+            },
             {
                 rowAction: {
                     items:
@@ -24,7 +75,8 @@ $(function () {
                                 text: l('Edit'),
                                 visible: abp.auth.isGranted('FindJob.Post.Update'),
                                 action: function (data) {
-                                    editModal.open({ id: data.record.id });
+                                    //editModal.open({ id: data.record.id });
+                                    location.href = '/Posts/Post/EditModal?Id=' + data.record.id
                                 }
                             },
                             {
@@ -43,27 +95,7 @@ $(function () {
                             }
                         ]
                 }
-            },
-            {
-                title: l('PostContent'),
-                data: "content"
-            },
-            {
-                title: l('PostStatus'),
-                data: "status"
-            },
-            {
-                title: l('PostIdUser'),
-                data: "idUser"
-            },
-            {
-                title: l('PostIdField'),
-                data: "idField"
-            },
-            {
-                title: l('PostFileName'),
-                data: "fileName"
-            },
+            }
         ]
     }));
 
@@ -80,3 +112,29 @@ $(function () {
         createModal.open();
     });
 });
+function ChangeStatus(id, status) {
+    if ($('#' + id).is(':checked')) {
+        $("#" + id).prop("checked", false);
+    }
+    else {
+        $("#" + id).prop("checked", true);
+    }
+    dataTable.ajax.reload();
+
+    var mess = l('BlockTheCategory');
+    if (status == 0) {
+        mess = l('UnblockTheCategory');
+    }
+
+    abp.message.confirm(mess, l('Notify'))
+        .then(function (confirmed) {
+
+            if (confirmed) {
+                service.changeStatus(id)
+                abp.message.success(l('YourChangesHaveBeenSuccessfullySaved'), l('Congratulations'));
+                dataTable.ajax.reload();
+            }
+            dataTable.ajax.reload();
+
+        });
+};

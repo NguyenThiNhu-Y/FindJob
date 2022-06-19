@@ -13,10 +13,9 @@ $(function () {
         searching: false,
         autoWidth: false,
         scrollCollapse: true,
-        order: [[0, "asc"]],
+        order: [[1, "asc"]],
         ajax: abp.libs.datatables.createAjax(service.getListField),
         columnDefs: [
-            
             {
                 title: l('Index'),
                 orderable: false,
@@ -24,17 +23,22 @@ $(function () {
                     return meta.row + meta.settings._iDisplayStart + 1;
                 }
             },
+            //{
+            //    title: l('FieldContent'),
+            //    data: "content"
+            //},
+
             {
-                title: l('FieldName'),
+                title: l('Name'),
                 data: "name"
-            },
-            {
-                title: l('FieldIdParentField'),
-                data: "idParentField"
             },
             {
                 title: l('ParentField'),
                 data: "parentField"
+            },
+            {
+                title: l('IdParentField'),
+                data: "idParentField"
             },
             {
                 rowAction: {

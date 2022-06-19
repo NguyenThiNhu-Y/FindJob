@@ -19,7 +19,7 @@ namespace FindJob.Blazor.Server.Menus
             }
         }
 
-        private Task ConfigureMainMenuAsync(MenuConfigurationContext context)
+        private async Task<Task> ConfigureMainMenuAsync(MenuConfigurationContext context)
         {
             var administration = context.Menu.GetAdministration();
             var l = context.GetLocalizer<FindJobResource>();
@@ -58,6 +58,13 @@ namespace FindJob.Blazor.Server.Menus
             {
                 context.Menu.AddItem(
                     new ApplicationMenuItem(FindJobMenus.Post, l["Menu:Post"], "/Posts/Post")
+                );
+            }
+            
+            if (await context.IsGrantedAsync(FindJobPermissions.CV.Default))
+            {
+                context.Menu.AddItem(
+                    new ApplicationMenuItem(FindJobMenus.CV, l["Menu:CV"], "/CVs/CV")
                 );
             }
         }

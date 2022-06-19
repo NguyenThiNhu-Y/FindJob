@@ -26,7 +26,7 @@ namespace FindJob.Fields
             _repository = repository;
         }
 
-        public async Task<PagedResultDto<FieldDto>> GetListPostAsync(GetInputField input)
+        public async Task<PagedResultDto<FieldDto>> GetListFieldAsync(GetInputField input)
         {
             if (input.Sorting.IsNullOrWhiteSpace())
             {

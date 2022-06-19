@@ -15,5 +15,6 @@ namespace FindJob.Posts
             CreateUpdatePostDto>
     {
         Task<PagedResultDto<PostDto>> GetListPostAsync(GetInputPost input);
+        Task ChangeStatus(Guid Id);
     }
 }

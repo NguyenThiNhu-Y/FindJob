@@ -15,7 +15,7 @@ namespace FindJob.Fields
             CreateUpdateFieldDto,
             CreateUpdateFieldDto>
     {
-        Task<PagedResultDto<FieldDto>> GetListPostAsync(GetInputField input);
+        Task<PagedResultDto<FieldDto>> GetListFieldAsync(GetInputField input);
 
     }
 }

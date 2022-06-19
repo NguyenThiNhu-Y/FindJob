@@ -2,6 +2,8 @@ using FindJob.Fields;
 using FindJob.Fields.Dtos;
 using FindJob.Posts;
 using FindJob.Posts.Dtos;
+using FindJob.CVs;
+using FindJob.CVs.Dtos;
 using AutoMapper;
 
 namespace FindJob
@@ -17,6 +19,9 @@ namespace FindJob
             CreateMap<CreateUpdateFieldDto, Field>(MemberList.Source);
             CreateMap<Post, PostDto>();
             CreateMap<CreateUpdatePostDto, Post>(MemberList.Source);
+
+            CreateMap<CV, CVDto>();
+            CreateMap<CreateUpdateCVDto, CV>(MemberList.Source);
         }
     }
 }

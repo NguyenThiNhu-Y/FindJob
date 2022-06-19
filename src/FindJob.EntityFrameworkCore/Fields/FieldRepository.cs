@@ -16,7 +16,7 @@ namespace FindJob.Fields
         {
         }
 
-        public async Task<List<Field>> GetListFieldAsync(int skipCount, int maxResultCount, string sorting, string filter = null)
+        public async Task<List<Field>> GetListFieldAsync(int skipCount, int maxResultCount, string sorting = null, string filter = null)
         {
             var dbSet = await GetDbSetAsync();
             return await dbSet
@@ -24,7 +24,7 @@ namespace FindJob.Fields
                     !filter.IsNullOrWhiteSpace(),
                     author => author.Name.Contains(filter)
                  )
-                .OrderBy(sorting)
+                .OrderBy(sorting != null ? sorting : "CreateDate")
                 .Skip(skipCount)
                 .Take(maxResultCount)
                 .ToListAsync();

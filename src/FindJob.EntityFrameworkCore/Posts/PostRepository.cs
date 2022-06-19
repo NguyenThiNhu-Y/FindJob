@@ -16,7 +16,7 @@ namespace FindJob.Posts
         {
         }
 
-        public async Task<List<Post>> GetListPostAsync(int skipCount, int maxResultCount, string sorting, string filter = null)
+        public async Task<List<Post>> GetListPostAsync(int skipCount, int maxResultCount, string sorting = null, string filter = null)
         {
             var dbSet = await GetDbSetAsync();
             return await dbSet
@@ -24,7 +24,7 @@ namespace FindJob.Posts
                     !filter.IsNullOrWhiteSpace(),
                     author => author.IdUser.ToString().Contains(filter)
                  )
-                .OrderBy(sorting)
+                .OrderBy(sorting!=null? sorting: "CreateDate")
                 .Skip(skipCount)
                 .Take(maxResultCount)
                 .ToListAsync();

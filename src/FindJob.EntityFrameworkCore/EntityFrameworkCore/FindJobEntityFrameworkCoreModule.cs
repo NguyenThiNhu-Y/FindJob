@@ -1,3 +1,4 @@
+using FindJob.CVs;
 using FindJob.Posts;
 using FindJob.Fields;
 using Microsoft.Extensions.DependencyInjection;
@@ -43,6 +44,7 @@ namespace FindJob.EntityFrameworkCore
                 options.AddDefaultRepositories(includeAllEntities: true);
                 options.AddRepository<Field, FieldRepository>();
                 options.AddRepository<Post, PostRepository>();
+                options.AddRepository<CV, CVRepository>();
             });
 
             Configure<AbpDbContextOptions>(options =>

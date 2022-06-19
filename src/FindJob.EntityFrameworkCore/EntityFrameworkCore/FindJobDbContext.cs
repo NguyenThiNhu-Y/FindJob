@@ -15,6 +15,7 @@ using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using FindJob.Fields;
 using Volo.Abp.EntityFrameworkCore.Modeling;
 using FindJob.Posts;
+using FindJob.CVs;
 
 namespace FindJob.EntityFrameworkCore
 {
@@ -56,6 +57,7 @@ namespace FindJob.EntityFrameworkCore
         #endregion
         public DbSet<Field> Fields { get; set; }
         public DbSet<Post> Posts { get; set; }
+        public DbSet<CV> CVs { get; set; }
         
         public FindJobDbContext(DbContextOptions<FindJobDbContext> options)
             : base(options)
@@ -101,6 +103,19 @@ namespace FindJob.EntityFrameworkCore
             builder.Entity<Post>(b =>
             {
                 b.ToTable(FindJobConsts.DbTablePrefix + "Posts", FindJobConsts.DbSchema);
+                b.ConfigureByConvention(); 
+                
+
+                /* Configure more properties here */
+            });
+
+
+           
+
+
+            builder.Entity<CV>(b =>
+            {
+                b.ToTable(FindJobConsts.DbTablePrefix + "CVs", FindJobConsts.DbSchema);
                 b.ConfigureByConvention(); 
                 
 
