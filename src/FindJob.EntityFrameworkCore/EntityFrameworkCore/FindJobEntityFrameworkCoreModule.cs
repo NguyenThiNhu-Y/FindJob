@@ -1,3 +1,4 @@
+using FindJob.Notifies;
 using FindJob.CVs;
 using FindJob.Posts;
 using FindJob.Fields;
@@ -45,6 +46,7 @@ namespace FindJob.EntityFrameworkCore
                 options.AddRepository<Field, FieldRepository>();
                 options.AddRepository<Post, PostRepository>();
                 options.AddRepository<CV, CVRepository>();
+                options.AddRepository<Notify, NotifyRepository>();
             });
 
             Configure<AbpDbContextOptions>(options =>

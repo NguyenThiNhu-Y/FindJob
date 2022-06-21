@@ -77,16 +77,18 @@ namespace FindJob.Blazor.Server.Tiered.Menus
                     new ApplicationMenuItem(FindJobMenus.Post, l["Menu:Post"], "/Posts/Post")
                 );
             }
-            if (await context.IsGrantedAsync(FindJobPermissions.CVs.Default))
-            {
-                context.Menu.AddItem(
-                    new ApplicationMenuItem(FindJobMenus.CVs, l["Menu:CVes"], "/CVes/CVes")
-                );
-            }
+          
             if (await context.IsGrantedAsync(FindJobPermissions.CV.Default))
             {
                 context.Menu.AddItem(
                     new ApplicationMenuItem(FindJobMenus.CV, l["Menu:CV"], "/CVs/CV")
+                );
+            }
+
+            if (await context.IsGrantedAsync(FindJobPermissions.Notify.Default))
+            {
+                context.Menu.AddItem(
+                    new ApplicationMenuItem(FindJobMenus.Notify, l["Menu:Notify"], "/Notifies/Notify")
                 );
             }
         }

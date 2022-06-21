@@ -1,19 +1,51 @@
-@page
+﻿@page
 @using FindJob.Localization
 @using Microsoft.AspNetCore.Mvc.Localization
 @using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal;
 @inject IHtmlLocalizer<FindJobResource> L
 @model FindJob.Web.Pages.CVs.CV.EditModalModel
-@{
-    Layout = null;
+@section scripts{
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#summernote').summernote();
+
+        });
+
+    </script>
 }
-<abp-dynamic-form abp-model="ViewModel" data-ajaxForm="true" asp-page="EditModal">
-    <abp-modal>
-        <abp-modal-header title="@L["EditCV"].Value"></abp-modal-header>
-        <abp-modal-body>
-            <abp-input asp-for="Id" />
-            <abp-form-content />
-        </abp-modal-body>
-        <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)"></abp-modal-footer>
-    </abp-modal>
-</abp-dynamic-form>
+
+
+<form method="post" asp-page="/CVs/CV/EditModal" enctype="multipart/form-data">
+    <abp-card size="ExtraLarge">
+        <abp-card-header>
+            <abp-row>
+                <abp-column size-md="_6">
+                    <abp-card-title style="font-weight:bold; text-transform:uppercase; font-size:20px">@L["EditPost"]</abp-card-title>
+                </abp-column>
+            </abp-row>
+        </abp-card-header>
+        <abp-card-body>
+            <input asp-for="Id" hidden />
+            <abp-select asp-for="ViewModel.IdField" asp-items="Model.ListIdParent" />
+            <div class="mb-3">
+                <label class="form-label">@L["FileOld"]</label>
+                @{ var file = "~/Files/" + Model.ViewModel.FileName;}
+                <a href="@file">@Model.ViewModel.FileName</a>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">@L["File"]</label>
+                <input class="form-control" type="file" name="file" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">@L["Content"]</label>
+                <textarea asp-for="ViewModel.Content" id="summernote" rows="3"></textarea>
+            </div>
+        </abp-card-body>
+        <abp-card-footer>
+            <a href="/CVs/CV" class="btn btn-secondary">@L["Cancel"]</a>
+            <button id="save" data-busy-text="Đang lưu..." class="btn btn-primary bkgrnd-cyan save-details" type="submit" name="save-details">@L["Save"]</button>
+        </abp-card-footer>
+    </abp-card>
+</form>

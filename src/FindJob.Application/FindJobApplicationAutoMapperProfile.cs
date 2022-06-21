@@ -4,6 +4,8 @@ using FindJob.Posts;
 using FindJob.Posts.Dtos;
 using FindJob.CVs;
 using FindJob.CVs.Dtos;
+using FindJob.Notifies;
+using FindJob.Notifies.Dtos;
 using AutoMapper;
 
 namespace FindJob
@@ -22,6 +24,8 @@ namespace FindJob
 
             CreateMap<CV, CVDto>();
             CreateMap<CreateUpdateCVDto, CV>(MemberList.Source);
+            CreateMap<Notify, NotifyDto>();
+            CreateMap<CreateUpdateNotifyDto, Notify>(MemberList.Source);
         }
     }
 }

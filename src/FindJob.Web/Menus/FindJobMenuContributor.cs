@@ -65,6 +65,13 @@ namespace FindJob.Web.Menus
                     new ApplicationMenuItem(FindJobMenus.CV, l["Menu:CV"], "/CVs/CV")
                 );
             }
+            
+            if (await context.IsGrantedAsync(FindJobPermissions.Notify.Default))
+            {
+                context.Menu.AddItem(
+                    new ApplicationMenuItem(FindJobMenus.Notify, l["Menu:Notify"], "/Notifies/Notify")
+                );
+            }
         }
     }
 }

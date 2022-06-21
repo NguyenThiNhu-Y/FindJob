@@ -13,9 +13,53 @@ $(function () {
         searching: false,
         autoWidth: false,
         scrollCollapse: true,
-        order: [[0, "asc"]],
-        ajax: abp.libs.datatables.createAjax(service.getList),
+        //order: [[0, "asc"]],
+        order: false,
+        ajax: abp.libs.datatables.createAjax(service.getListCV),
         columnDefs: [
+            {
+                title: l('Index'),
+                orderable: false,
+                render: function (data, type, row, meta) {
+                    return meta.row + meta.settings._iDisplayStart + 1;
+                }
+            },
+            {
+                title: l('FullName'),
+                data: "fullName"
+            },
+            {
+                title: l('FieldName'),
+                data: "fieldName"
+            },
+            //{
+            //    title: l('CVIdUser'),
+            //    data: "idUser"
+            //},
+            //{
+            //    title: l('CVIdField'),
+            //    data: "idField"
+            //},
+            {
+                title: l('CVFileName'),
+                data: "fileName"
+            },
+            {
+                title: l('CVStatus'),
+                data: { status: "status", id: "id" },
+                render: function (data) {
+
+                    var check = '';
+                    if (data.status == 1)
+                        check = "checked";
+                    var str = '<label class="switch">' +
+                        `<input type = "checkbox" id="${data.id}" ${check} onclick="ChangeStatus(this.id,${data.status})">` +
+                        '<span class="slider round"></span>' +
+                        '</label >';
+                    return str;
+
+                }
+            },
             {
                 rowAction: {
                     items:
@@ -24,7 +68,8 @@ $(function () {
                                 text: l('Edit'),
                                 visible: abp.auth.isGranted('FindJob.CV.Update'),
                                 action: function (data) {
-                                    editModal.open({ id: data.record.id });
+                                    //editModal.open({ id: data.record.id });
+                                    location.href = '/CVs/CV/EditModal?Id=' + data.record.id
                                 }
                             },
                             {
@@ -43,26 +88,6 @@ $(function () {
                             }
                         ]
                 }
-            },
-            {
-                title: l('CVContent'),
-                data: "content"
-            },
-            {
-                title: l('CVStatus'),
-                data: "status"
-            },
-            {
-                title: l('CVIdUser'),
-                data: "idUser"
-            },
-            {
-                title: l('CVIdField'),
-                data: "idField"
-            },
-            {
-                title: l('CVFileName'),
-                data: "fileName"
             },
         ]
     }));

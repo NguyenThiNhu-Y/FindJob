@@ -11,5 +11,7 @@ namespace FindJob.Blazor.Server.Menus
         public const string Post = Prefix + ".Post";
         public const string CVs = Prefix + ".CVs";
         public const string CV = Prefix + ".CV";
+        public const string CurriculumVitae = Prefix + ".CurriculumVitae";
+        public const string Notify = Prefix + ".Notify";
     }
 }

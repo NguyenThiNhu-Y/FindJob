@@ -4,6 +4,8 @@ using FindJob.Posts.Dtos;
 using FindJob.Web.Pages.Posts.Post.ViewModels;
 using FindJob.CVs.Dtos;
 using FindJob.Web.Pages.CVs.CV.ViewModels;
+using FindJob.Notifies.Dtos;
+using FindJob.Web.Pages.Notifies.Notify.ViewModels;
 using AutoMapper;
 
 namespace FindJob.Web
@@ -20,6 +22,8 @@ namespace FindJob.Web
 
             CreateMap<CVDto, CreateEditCVViewModel>();
             CreateMap<CreateEditCVViewModel, CreateUpdateCVDto>();
+            CreateMap<NotifyDto, CreateEditNotifyViewModel>();
+            CreateMap<CreateEditNotifyViewModel, CreateUpdateNotifyDto>();
         }
     }
 }

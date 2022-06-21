@@ -14,5 +14,7 @@ namespace FindJob.CVs.Dtos
         public Guid IdField { get; set; }
 
         public string FileName { get; set; }
+        public bool IsRead { get; set; }
+
     }
 }

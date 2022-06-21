@@ -24,7 +24,7 @@ namespace FindJob.Posts
                     !filter.IsNullOrWhiteSpace(),
                     author => author.IdUser.ToString().Contains(filter)
                  )
-                .OrderBy(sorting!=null? sorting: "CreateDate")
+                //.OrderBy(sorting!=null? sorting: "CreationTime")
                 .Skip(skipCount)
                 .Take(maxResultCount)
                 .ToListAsync();

@@ -48,6 +48,26 @@
     "CVFileName": "CVFileName",
     "CreateCV": "CreateCV",
     "EditCV": "EditCV",
-    "CVDeletionConfirmationMessage": "Are you sure to delete the cV {0}?"
+    "CVDeletionConfirmationMessage": "Are you sure to delete the cV {0}?",
+    "Permission:CurriculumVitae": "CurriculumVitae",
+    "Menu:CurriculumVitae": "MenuCurriculumVitae",
+    "CurriculumVitae": "CurriculumVitae",
+    "CurriculumVitaeContent": "CurriculumVitaeContent",
+    "CurriculumVitaeStatus": "CurriculumVitaeStatus",
+    "CurriculumVitaeIdUser": "CurriculumVitaeIdUser",
+    "CurriculumVitaeIdField": "CurriculumVitaeIdField",
+    "CurriculumVitaeFileName": "CurriculumVitaeFileName",
+    "CreateCurriculumVitae": "CreateCurriculumVitae",
+    "EditCurriculumVitae": "EditCurriculumVitae",
+    "CurriculumVitaeDeletionConfirmationMessage": "Are you sure to delete the curriculumVitae {0}?",
+    "Permission:Notify": "Notify",
+    "Menu:Notify": "MenuNotify",
+    "Notify": "Notify",
+    "NotifyContent": "NotifyContent",
+    "NotifyIdCV": "NotifyIdCV",
+    "NotifyStatus": "NotifyStatus",
+    "CreateNotify": "CreateNotify",
+    "EditNotify": "EditNotify",
+    "NotifyDeletionConfirmationMessage": "Are you sure to delete the notify {0}?"
   }
 }
