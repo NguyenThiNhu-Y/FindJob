@@ -48,5 +48,21 @@ namespace FindJob.Permissions
             public const string Create = Default + ".Create";
             public const string Delete = Default + ".Delete";
         }
+
+        public class Employer
+        {
+            public const string Default = GroupName + ".Employer";
+            public const string Update = Default + ".Update";
+            public const string Create = Default + ".Create";
+            public const string Delete = Default + ".Delete";
+        }
+
+        public class ManageCandidate
+        {
+            public const string Default = GroupName + ".ManageCandidate";
+            public const string Update = Default + ".Update";
+            public const string Create = Default + ".Create";
+            public const string Delete = Default + ".Delete";
+        }
     }
 }

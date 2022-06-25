@@ -70,7 +70,22 @@
     "Detail": "Chi tiết",
     "DetailPost": "Chi tiết CV",
     "Back": "Quay lại",
-    "CVNotExist": "CV không còn tồn tại"
-
+    "CVNotExist": "CV không còn tồn tại",
+    "Permission:Employer": "Quản lý nhà tuyển dụng",
+    "Menu:Employer": "Quản lý nhà tuyển dụng",
+    "Employer": "Nhà tuyển dụng",
+    "EmployerIdUser": "EmployerIdUser",
+    "CreateEmployer": "Thêm mới",
+    "EditEmployer": "Chỉnh sửa",
+    "EmployerDeletionConfirmationMessage": "Bạn có muốn xóa nhà tuyển dụng {0}?",
+    "Permission:ManageCandidate": "Quản lý ứng viên",
+    "Menu:ManageCandidate": "Quản lý ứng viên",
+    "ManageCandidate": "Quản lý ứng viên",
+    "ManageCandidateIdCV": "ManageCandidateIdCV",
+    "ManageCandidateIdEmployer": "ManageCandidateIdEmployer",
+    "ManageCandidateStatus": "Trạng thái",
+    "CreateManageCandidate": "Thêm mới",
+    "EditManageCandidate": "Chỉnh sửa",
+    "ManageCandidateDeletionConfirmationMessage": "Bạn có muốn xóa ứng viên {0}?"
   }
 }

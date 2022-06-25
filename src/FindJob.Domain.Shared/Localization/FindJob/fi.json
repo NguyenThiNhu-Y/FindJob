@@ -68,6 +68,22 @@
     "NotifyStatus": "NotifyStatus",
     "CreateNotify": "CreateNotify",
     "EditNotify": "EditNotify",
-    "NotifyDeletionConfirmationMessage": "Are you sure to delete the notify {0}?"
+    "NotifyDeletionConfirmationMessage": "Are you sure to delete the notify {0}?",
+    "Permission:Employer": "Employer",
+    "Menu:Employer": "MenuEmployer",
+    "Employer": "Employer",
+    "EmployerIdUser": "EmployerIdUser",
+    "CreateEmployer": "CreateEmployer",
+    "EditEmployer": "EditEmployer",
+    "EmployerDeletionConfirmationMessage": "Are you sure to delete the employer {0}?",
+    "Permission:ManageCandidate": "ManageCandidate",
+    "Menu:ManageCandidate": "MenuManageCandidate",
+    "ManageCandidate": "ManageCandidate",
+    "ManageCandidateIdCV": "ManageCandidateIdCV",
+    "ManageCandidateIdEmployer": "ManageCandidateIdEmployer",
+    "ManageCandidateStatus": "ManageCandidateStatus",
+    "CreateManageCandidate": "CreateManageCandidate",
+    "EditManageCandidate": "EditManageCandidate",
+    "ManageCandidateDeletionConfirmationMessage": "Are you sure to delete the manageCandidate {0}?"
   }
 }

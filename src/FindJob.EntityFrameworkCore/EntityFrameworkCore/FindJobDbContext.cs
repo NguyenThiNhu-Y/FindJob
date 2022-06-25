@@ -17,6 +17,8 @@ using Volo.Abp.EntityFrameworkCore.Modeling;
 using FindJob.Posts;
 using FindJob.CVs;
 using FindJob.Notifies;
+using FindJob.Employers;
+using FindJob.ManageCandidates;
 
 namespace FindJob.EntityFrameworkCore
 {
@@ -60,6 +62,8 @@ namespace FindJob.EntityFrameworkCore
         public DbSet<Post> Posts { get; set; }
         public DbSet<CV> CVs { get; set; }
         public DbSet<Notify> Notifies { get; set; }
+        public DbSet<Employer> Employers { get; set; }
+        public DbSet<ManageCandidate> ManageCandidates { get; set; }
         
         public FindJobDbContext(DbContextOptions<FindJobDbContext> options)
             : base(options)
@@ -131,6 +135,26 @@ namespace FindJob.EntityFrameworkCore
             builder.Entity<Notify>(b =>
             {
                 b.ToTable(FindJobConsts.DbTablePrefix + "Notifies", FindJobConsts.DbSchema);
+                b.ConfigureByConvention(); 
+                
+
+                /* Configure more properties here */
+            });
+
+
+            builder.Entity<Employer>(b =>
+            {
+                b.ToTable(FindJobConsts.DbTablePrefix + "Employers", FindJobConsts.DbSchema);
+                b.ConfigureByConvention(); 
+                
+
+                /* Configure more properties here */
+            });
+
+
+            builder.Entity<ManageCandidate>(b =>
+            {
+                b.ToTable(FindJobConsts.DbTablePrefix + "ManageCandidates", FindJobConsts.DbSchema);
                 b.ConfigureByConvention(); 
                 
 
