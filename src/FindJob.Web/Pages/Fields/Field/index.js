@@ -36,10 +36,10 @@ $(function () {
                 title: l('ParentField'),
                 data: "parentField"
             },
-            {
-                title: l('IdParentField'),
-                data: "idParentField"
-            },
+            //{
+            //    title: l('IdParentField'),
+            //    data: "idParentField"
+            //},
             {
                 rowAction: {
                     items:

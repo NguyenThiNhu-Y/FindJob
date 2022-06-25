@@ -32,13 +32,13 @@
                 <abp-card-title>@L["Notify"]</abp-card-title>
             </abp-column>
             <abp-column size-md="_6" class="text-end">
-			    @if (await Authorization.IsGrantedAsync(FindJobPermissions.Notify.Create))
+			    @*@if (await Authorization.IsGrantedAsync(FindJobPermissions.Notify.Create))
                 {
                 <abp-button id="NewNotifyButton"
                             text="@L["CreateNotify"].Value"
                             icon="plus"
                             button-type="Primary" />
-                }
+                }*@
             </abp-column>
         </abp-row>
     </abp-card-header>

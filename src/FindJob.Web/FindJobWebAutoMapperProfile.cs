@@ -22,8 +22,11 @@ namespace FindJob.Web
 
             CreateMap<CVDto, CreateEditCVViewModel>();
             CreateMap<CreateEditCVViewModel, CreateUpdateCVDto>();
+            CreateMap<FindJob.CVs.CV, CreateEditCVViewModel>();
+
             CreateMap<NotifyDto, CreateEditNotifyViewModel>();
             CreateMap<CreateEditNotifyViewModel, CreateUpdateNotifyDto>();
+
         }
     }
 }

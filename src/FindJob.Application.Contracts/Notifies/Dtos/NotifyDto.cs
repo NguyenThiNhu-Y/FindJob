@@ -11,5 +11,7 @@ namespace FindJob.Notifies.Dtos
         public Guid IdCV { get; set; }
 
         public bool Status { get; set; }
+
+        public string FieldName { get; set; }
     }
 }

@@ -1,12 +1,16 @@
+var l;
+var service;
+var dataTable;
 $(function () {
 
-    var l = abp.localization.getResource('FindJob');
+    l = abp.localization.getResource('FindJob');
 
-    var service = findJob.cVs.cV;
+    service = findJob.cVs.cV;
     var createModal = new abp.ModalManager(abp.appPath + 'CVs/CV/CreateModal');
     var editModal = new abp.ModalManager(abp.appPath + 'CVs/CV/EditModal');
+    var detailModal = new abp.ModalManager(abp.appPath + 'CVs/CV/DetailModal');
 
-    var dataTable = $('#CVTable').DataTable(abp.libs.datatables.normalizeConfiguration({
+    dataTable = $('#CVTable').DataTable(abp.libs.datatables.normalizeConfiguration({
         processing: true,
         serverSide: true,
         paging: true,
@@ -72,6 +76,14 @@ $(function () {
                                     location.href = '/CVs/CV/EditModal?Id=' + data.record.id
                                 }
                             },
+                            //{
+                            //    text: l('Detail'),
+                            //    //visible: abp.auth.isGranted('FindJob.CV.Detail'),
+                            //    action: function (data) {
+                            //        detailModal.open({ id: data.record.id });
+                            //        //location.href = '/CVs/CV/DetailModal?Id=' + data.record.id
+                            //    }
+                            //},
                             {
                                 text: l('Delete'),
                                 visible: abp.auth.isGranted('FindJob.CV.Delete'),
@@ -105,3 +117,29 @@ $(function () {
         createModal.open();
     });
 });
+function ChangeStatus(id, status) {
+    if ($('#' + id).is(':checked')) {
+        $("#" + id).prop("checked", false);
+    }
+    else {
+        $("#" + id).prop("checked", true);
+    }
+    dataTable.ajax.reload();
+
+    var mess = l('BlockTheCategory');
+    if (status == 0) {
+        mess = l('UnblockTheCategory');
+    }
+
+    abp.message.confirm(mess, l('Notify'))
+        .then(function (confirmed) {
+
+            if (confirmed) {
+                service.changeStatus(id)
+                abp.message.success(l('YourChangesHaveBeenSuccessfullySaved'), l('Congratulations'));
+                dataTable.ajax.reload();
+            }
+            dataTable.ajax.reload();
+
+        });
+};

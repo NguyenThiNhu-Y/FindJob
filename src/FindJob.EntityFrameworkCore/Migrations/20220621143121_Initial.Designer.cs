@@ -11,8 +11,8 @@ using Volo.Abp.EntityFrameworkCore;
 namespace FindJob.Migrations
 {
     [DbContext(typeof(FindJobDbContext))]
-    [Migration("20220621105042_table")]
-    partial class table
+    [Migration("20220621143121_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

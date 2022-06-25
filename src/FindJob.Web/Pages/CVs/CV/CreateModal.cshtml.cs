@@ -11,6 +11,8 @@ using System.Linq;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using System;
+using FindJob.Notifies;
+using FindJob.Notifies.Dtos;
 
 namespace FindJob.Web.Pages.CVs.CV
 {
@@ -21,16 +23,22 @@ namespace FindJob.Web.Pages.CVs.CV
 
         private readonly ICVAppService _service;
         private readonly IFieldRepository _fieldRepository;
+        private readonly INotifyAppService _notifyAppService;
         private readonly IWebHostEnvironment _hostEnvironment;
         public List<SelectListItem> ListIdParent { get; set; }
 
 
 
-        public CreateModalModel(ICVAppService service, IFieldRepository fieldRepository, IWebHostEnvironment hostEnvironment)
+        public CreateModalModel(
+            ICVAppService service, 
+            IFieldRepository fieldRepository, 
+            IWebHostEnvironment hostEnvironment,
+            INotifyAppService notifyAppService)
         {
             _service = service;
             _fieldRepository = fieldRepository;
             _hostEnvironment = hostEnvironment;
+            _notifyAppService = notifyAppService;
         }
         public virtual async Task OnGetAsync()
         {
@@ -75,8 +83,19 @@ namespace FindJob.Web.Pages.CVs.CV
                 dto.FileName = filename;
             }
             dto.IdUser = (Guid)CurrentUser.Id;
-            dto.IsRead = true;
-            await _service.CreateAsync(dto);
+            dto.IsRead = false;
+            dto.Status = true;
+            var cv = await _service.CreateAsync(dto);
+
+            //insert notify
+            var field = (await _fieldRepository.FindAsync(cv.IdField)).Name;
+            CreateUpdateNotifyDto notify = new CreateUpdateNotifyDto
+            {
+                Content = NotifyConstants.NotifyConsts + field,
+                IdCV = cv.Id,
+                Status = false
+            } ;
+            await _notifyAppService.CreateAsync(notify);
             return RedirectToAction("CV", "CVs");
         }
     }

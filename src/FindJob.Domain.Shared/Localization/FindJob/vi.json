@@ -53,14 +53,24 @@
     "CVDeletionConfirmationMessage": "Bạn muốn xóa CV {0}?",
     "FileOld": "Tên file hiện tại",
     "File": "File mới",
-    "Permission:Notify": "Notify",
-    "Menu:Notify": "MenuNotify",
-    "Notify": "Notify",
-    "NotifyContent": "NotifyContent",
+    "Permission:Notify": "Thông báo",
+    "Menu:Notify": "Quản lý thông báo",
+    "Notify": "Thông báo",
+    "NotifyContent": "Nội dung thông báo",
     "NotifyIdCV": "NotifyIdCV",
     "NotifyStatus": "NotifyStatus",
-    "CreateNotify": "CreateNotify",
-    "EditNotify": "EditNotify",
-    "NotifyDeletionConfirmationMessage": "Are you sure to delete the notify {0}?"
+    "CreateNotify": "Thêm mới",
+    "EditNotify": "Chỉnh sửa",
+    "NotifyDeletionConfirmationMessage": "Are you sure to delete the notify {0}?",
+    "Name": "Tên loại bài tuyển dụng",
+    "ParentField": "Loại tuyển dụng cha",
+    "IdParentField": "ID Loại tuyển dụng cha",
+    "You have a new CV in the field of ": "Bạn có 1 CV mới về lĩnh vực ",
+    "Content": "Nội dung",
+    "Detail": "Chi tiết",
+    "DetailPost": "Chi tiết CV",
+    "Back": "Quay lại",
+    "CVNotExist": "CV không còn tồn tại"
+
   }
 }

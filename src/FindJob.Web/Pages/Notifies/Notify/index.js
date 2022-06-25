@@ -14,19 +14,44 @@ $(function () {
         autoWidth: false,
         scrollCollapse: true,
         order: [[0, "asc"]],
-        ajax: abp.libs.datatables.createAjax(service.getList),
+        ajax: abp.libs.datatables.createAjax(service.getListNotify),
         columnDefs: [
             {
+                title: l('Index'),
+                orderable: false,
+                render: function (data, type, row, meta) {
+                    return meta.row + meta.settings._iDisplayStart + 1;
+                }
+            },
+            
+            {
+                title: l('NotifyContent'),
+                data: { content: "content", fieldName: "fieldName", idCV: "idCV"},
+                render: function (data) {
+                    
+                    return "<a href='/CVs/CV/DetailModal?Id=" + data.idCV+"'>"+l(data.content) + " " + data.fieldName+"</a>";
+                }
+            },
+            //{
+            //    title: l('NotifyIdCV'),
+            //    data: "idCV"
+            //},
+            //{
+            //    title: l('NotifyStatus'),
+            //    data: "status"
+            //},
+            {
+
                 rowAction: {
                     items:
                         [
-                            {
-                                text: l('Edit'),
-                                visible: abp.auth.isGranted('FindJob.Notify.Update'),
-                                action: function (data) {
-                                    editModal.open({ id: data.record.id });
-                                }
-                            },
+                            //{
+                            //    text: l('Edit'),
+                            //    visible: abp.auth.isGranted('FindJob.Notify.Update'),
+                            //    action: function (data) {
+                            //        editModal.open({ id: data.record.id });
+                            //    }
+                            //},
                             {
                                 text: l('Delete'),
                                 visible: abp.auth.isGranted('FindJob.Notify.Delete'),
@@ -43,18 +68,6 @@ $(function () {
                             }
                         ]
                 }
-            },
-            {
-                title: l('NotifyContent'),
-                data: "content"
-            },
-            {
-                title: l('NotifyIdCV'),
-                data: "idCV"
-            },
-            {
-                title: l('NotifyStatus'),
-                data: "status"
             },
         ]
     }));
