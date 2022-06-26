@@ -6,6 +6,7 @@
 @model FindJob.Web.Pages.CVs.CV.DetailModalModel
 @section scripts{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js"></script>
+    <abp-script src="/Pages/CVs/CV/DetailModal.js" />    
     <script>
         $(function () {
             var converter = new showdown.Converter();
@@ -16,7 +17,7 @@
 }
 
 
-<form method="post" asp-page="/CVs/CV/EditModal" enctype="multipart/form-data">
+<form method="post" asp-page="/CVs/CV/DetailModal" enctype="multipart/form-data">
     <abp-card size="ExtraLarge">
         <abp-card-header>
             <abp-row>
@@ -34,9 +35,9 @@
                 <a href="@file">@Model.ViewModel.FileName</a>
             </div>
             @*<div class="mb-3">
-                <label class="form-label">@L["Content"]</label>
-                <textarea asp-for="ViewModel.Content" id="summernote" rows="3"></textarea>
-            </div>*@
+                    <label class="form-label">@L["Content"]</label>
+                    <textarea asp-for="ViewModel.Content" id="summernote" rows="3"></textarea>
+                </div>*@
             <div class="mb-3">
                 <label class="form-label">@L["Content"]</label>
                 <textarea asp-for="ViewModel.Content" id="summernote" rows="3" hidden></textarea>
@@ -47,6 +48,19 @@
         </abp-card-body>
         <abp-card-footer>
             <a href="/Notifies/Notify" class="btn btn-secondary">@L["Back"]</a>
+            @if (!Model.ViewModel.Status)
+            {
+                @*<abp-button id="ApprovalCV"
+                            text="@L["ApprovalCV"].Value"
+                            button-type="Primary"
+                            style="float:right" />*@
+                <abp-button id="@Model.Id"
+                            text="@L["ApprovalCV"].Value"
+                            button-type="Primary"
+                            onclick="ChangeStatus(this.id)"
+                            style="float:right" />
+            }
+
         </abp-card-footer>
     </abp-card>
 </form>

@@ -65,6 +65,7 @@ $(function () {
                 }
             },
             {
+                title: l('Actions'),
                 rowAction: {
                     items:
                         [
@@ -116,8 +117,24 @@ $(function () {
         e.preventDefault();
         createModal.open();
     });
+    $('#ApprovalCV').click(function (e) {
+        debugger;
+        console.log("hello");
+        abp.message.confirm(mess, l('Notify'))
+            .then(function (confirmed) {
+
+                if (confirmed) {
+                    service.changeStatus(id)
+                    abp.message.success(l('Success'), l('Congratulations'));
+                    dataTable.ajax.reload();
+                }
+                dataTable.ajax.reload();
+
+            });
+    });
 });
 function ChangeStatus(id, status) {
+    dataTable.ajax.reload();
     if ($('#' + id).is(':checked')) {
         $("#" + id).prop("checked", false);
     }
@@ -126,9 +143,9 @@ function ChangeStatus(id, status) {
     }
     dataTable.ajax.reload();
 
-    var mess = l('BlockTheCategory');
-    if (status == 0) {
-        mess = l('UnblockTheCategory');
+    var mess = l('ApprovalCV');
+    if (status) {
+        mess = l('UnApprovalCV');
     }
 
     abp.message.confirm(mess, l('Notify'))
@@ -136,7 +153,7 @@ function ChangeStatus(id, status) {
 
             if (confirmed) {
                 service.changeStatus(id)
-                abp.message.success(l('YourChangesHaveBeenSuccessfullySaved'), l('Congratulations'));
+                abp.message.success(l('Success'), l('Congratulations'));
                 dataTable.ajax.reload();
             }
             dataTable.ajax.reload();

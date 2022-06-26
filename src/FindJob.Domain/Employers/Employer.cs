@@ -10,6 +10,8 @@ namespace FindJob.Employers
     public class Employer : FullAuditedEntity<Guid>
     {
         public Guid IdUser { get; set; }
+        public string CompanyName { get; set; }
+        public string Address { get; set; }
 
         protected Employer()
         {

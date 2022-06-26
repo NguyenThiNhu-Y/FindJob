@@ -17,6 +17,7 @@ $(function () {
         ajax: abp.libs.datatables.createAjax(service.getList),
         columnDefs: [
             {
+                title: l('Actions'),
                 rowAction: {
                     items:
                         [

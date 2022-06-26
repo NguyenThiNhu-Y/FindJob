@@ -62,5 +62,10 @@ namespace FindJob.Web.Pages.CVs.CV
             ));
             }
         }
+        public virtual async Task OnPostAsync()
+        {
+
+        }
+
     }
 }

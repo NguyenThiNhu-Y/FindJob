@@ -41,6 +41,7 @@ $(function () {
             //    data: "idParentField"
             //},
             {
+                title: l('Actions'),
                 rowAction: {
                     items:
                         [

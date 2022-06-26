@@ -41,7 +41,7 @@ $(function () {
             //    data: "status"
             //},
             {
-
+                title: l('Actions'),
                 rowAction: {
                     items:
                         [

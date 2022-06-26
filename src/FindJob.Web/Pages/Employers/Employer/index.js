@@ -17,6 +17,19 @@ $(function () {
         ajax: abp.libs.datatables.createAjax(service.getList),
         columnDefs: [
             {
+                title: l('Index'),
+                orderable: false,
+                render: function (data, type, row, meta) {
+                    return meta.row + meta.settings._iDisplayStart + 1;
+                }
+            },
+            
+            {
+                title: l('EmployerIdUser'),
+                data: "idUser"
+            },
+            {
+                title: l('Actions'),
                 rowAction: {
                     items:
                         [
@@ -43,10 +56,6 @@ $(function () {
                             }
                         ]
                 }
-            },
-            {
-                title: l('EmployerIdUser'),
-                data: "idUser"
             },
         ]
     }));
