@@ -5,7 +5,11 @@ $(function () {
     var service = findJob.notifies.notify;
     var createModal = new abp.ModalManager(abp.appPath + 'Notifies/Notify/CreateModal');
     var editModal = new abp.ModalManager(abp.appPath + 'Notifies/Notify/EditModal');
-
+    getFilter = function () {
+        return {
+            filter: $("input[name='Search']").val(),
+        };
+    };
     var dataTable = $('#NotifyTable').DataTable(abp.libs.datatables.normalizeConfiguration({
         processing: true,
         serverSide: true,
@@ -14,7 +18,7 @@ $(function () {
         autoWidth: false,
         scrollCollapse: true,
         order: [[0, "asc"]],
-        ajax: abp.libs.datatables.createAjax(service.getListNotify),
+        ajax: abp.libs.datatables.createAjax(service.getListNotify, getFilter),
         columnDefs: [
             {
                 title: l('Index'),
@@ -83,5 +87,9 @@ $(function () {
     $('#NewNotifyButton').click(function (e) {
         e.preventDefault();
         createModal.open();
+    });
+    $("input[name='Search'").keyup(function () {
+        dataTable.ajax.reload();
+        console.log(getFilter);
     });
 });

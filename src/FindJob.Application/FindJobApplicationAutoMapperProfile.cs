@@ -6,8 +6,6 @@ using FindJob.CVs;
 using FindJob.CVs.Dtos;
 using FindJob.Notifies;
 using FindJob.Notifies.Dtos;
-using FindJob.Employers;
-using FindJob.Employers.Dtos;
 using FindJob.ManageCandidates;
 using FindJob.ManageCandidates.Dtos;
 using AutoMapper;
@@ -30,8 +28,6 @@ namespace FindJob
             CreateMap<CreateUpdateCVDto, CV>(MemberList.Source);
             CreateMap<Notify, NotifyDto>();
             CreateMap<CreateUpdateNotifyDto, Notify>(MemberList.Source);
-            CreateMap<Employer, EmployerDto>();
-            CreateMap<CreateUpdateEmployerDto, Employer>(MemberList.Source);
             CreateMap<ManageCandidate, ManageCandidateDto>();
             CreateMap<CreateUpdateManageCandidateDto, ManageCandidate>(MemberList.Source);
         }

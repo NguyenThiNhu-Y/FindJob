@@ -6,8 +6,6 @@ using FindJob.CVs.Dtos;
 using FindJob.Web.Pages.CVs.CV.ViewModels;
 using FindJob.Notifies.Dtos;
 using FindJob.Web.Pages.Notifies.Notify.ViewModels;
-using FindJob.Employers.Dtos;
-using FindJob.Web.Pages.Employers.Employer.ViewModels;
 using FindJob.ManageCandidates.Dtos;
 using FindJob.Web.Pages.ManageCandidates.ManageCandidate.ViewModels;
 using AutoMapper;
@@ -31,8 +29,6 @@ namespace FindJob.Web
             CreateMap<NotifyDto, CreateEditNotifyViewModel>();
             CreateMap<CreateEditNotifyViewModel, CreateUpdateNotifyDto>();
 
-            CreateMap<EmployerDto, CreateEditEmployerViewModel>();
-            CreateMap<CreateEditEmployerViewModel, CreateUpdateEmployerDto>();
             CreateMap<ManageCandidateDto, CreateEditManageCandidateViewModel>();
             CreateMap<CreateEditManageCandidateViewModel, CreateUpdateManageCandidateDto>();
         }

@@ -9,7 +9,11 @@ $(function () {
     var createModal = new abp.ModalManager(abp.appPath + 'CVs/CV/CreateModal');
     var editModal = new abp.ModalManager(abp.appPath + 'CVs/CV/EditModal');
     var detailModal = new abp.ModalManager(abp.appPath + 'CVs/CV/DetailModal');
-
+    getFilter = function () {
+        return {
+            filter: $("input[name='Search']").val(),
+        };
+    };
     dataTable = $('#CVTable').DataTable(abp.libs.datatables.normalizeConfiguration({
         processing: true,
         serverSide: true,
@@ -19,7 +23,7 @@ $(function () {
         scrollCollapse: true,
         //order: [[0, "asc"]],
         order: false,
-        ajax: abp.libs.datatables.createAjax(service.getListCV),
+        ajax: abp.libs.datatables.createAjax(service.getListCV, getFilter),
         columnDefs: [
             {
                 title: l('Index'),
@@ -131,6 +135,11 @@ $(function () {
                 dataTable.ajax.reload();
 
             });
+    });
+
+    $("input[name='Search'").keyup(function () {
+        dataTable.ajax.reload();
+        console.log(getFilter);
     });
 });
 function ChangeStatus(id, status) {

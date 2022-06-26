@@ -1,5 +1,4 @@
 using FindJob.ManageCandidates;
-using FindJob.Employers;
 using FindJob.Notifies;
 using FindJob.CVs;
 using FindJob.Posts;
@@ -49,7 +48,6 @@ namespace FindJob.EntityFrameworkCore
                 options.AddRepository<Post, PostRepository>();
                 options.AddRepository<CV, CVRepository>();
                 options.AddRepository<Notify, NotifyRepository>();
-                options.AddRepository<Employer, EmployerRepository>();
                 options.AddRepository<ManageCandidate, ManageCandidateRepository>();
             });
 

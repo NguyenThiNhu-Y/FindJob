@@ -5,7 +5,11 @@ $(function () {
     var service = findJob.fields.field;
     var createModal = new abp.ModalManager(abp.appPath + 'Fields/Field/CreateModal');
     var editModal = new abp.ModalManager(abp.appPath + 'Fields/Field/EditModal');
-
+    getFilter = function () {
+        return {
+            filter: $("input[name='Search']").val(),
+        };
+    };
     var dataTable = $('#FieldTable').DataTable(abp.libs.datatables.normalizeConfiguration({
         processing: true,
         serverSide: true,
@@ -14,7 +18,7 @@ $(function () {
         autoWidth: false,
         scrollCollapse: true,
         order: [[1, "asc"]],
-        ajax: abp.libs.datatables.createAjax(service.getListField),
+        ajax: abp.libs.datatables.createAjax(service.getListField, getFilter),
         columnDefs: [
             {
                 title: l('Index'),
@@ -83,5 +87,9 @@ $(function () {
     $('#NewFieldButton').click(function (e) {
         e.preventDefault();
         createModal.open();
+    });
+    $("input[name='Search'").keyup(function () {
+        dataTable.ajax.reload();
+        console.log(getFilter);
     });
 });

@@ -32,18 +32,28 @@
                 <abp-card-title>@L["Field"]</abp-card-title>
             </abp-column>
             <abp-column size-md="_6" class="text-end">
+                
                 @if (await Authorization.IsGrantedAsync(FindJobPermissions.Field.Create))
                 {
                     <abp-button id="NewFieldButton"
-            text="@L["CreateField"].Value"
-            icon="plus"
-            button-type="Primary" style="float:right"/>
-                    
+                                text="@L["CreateField"].Value"
+                                icon="plus"
+                                button-type="Primary" style="float:right" />
+
                 }
             </abp-column>
         </abp-row>
+        
     </abp-card-header>
     <abp-card-body>
-        <abp-table striped-rows="true" id="FieldTable" class="nowrap"/>
+        <abp-row>
+            <abp-column size="_4">
+                <div class="mb-3">
+                    <label class="form-label">@L["Search"]</label>
+                    <input name="Search" placeholder="@L["Search"]" class="form-control" />
+                </div>
+            </abp-column>
+        </abp-row>
+        <abp-table striped-rows="true" id="FieldTable" class="nowrap" />
     </abp-card-body>
 </abp-card>

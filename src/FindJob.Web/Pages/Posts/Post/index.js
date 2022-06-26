@@ -8,7 +8,11 @@ $(function () {
     service = findJob.posts.post;
     var createModal = new abp.ModalManager(abp.appPath + 'Posts/Post/CreateModal');
     var editModal = new abp.ModalManager(abp.appPath + 'Posts/Post/EditModal');
-
+    getFilter = function () {
+        return {
+            filter: $("input[name='Search']").val(),
+        };
+    };
     dataTable = $('#PostTable').DataTable(abp.libs.datatables.normalizeConfiguration({
         processing: true,
         serverSide: true,
@@ -17,7 +21,7 @@ $(function () {
         autoWidth: false,
         scrollCollapse: true,
         order: [[1, "asc"]],
-        ajax: abp.libs.datatables.createAjax(service.getListPost),
+        ajax: abp.libs.datatables.createAjax(service.getListPost, getFilter),
         columnDefs: [
 
             {
@@ -112,6 +116,10 @@ $(function () {
     $('#NewPostButton').click(function (e) {
         e.preventDefault();
         createModal.open();
+    });
+    $("input[name='Search'").keyup(function () {
+        dataTable.ajax.reload();
+        console.log(getFilter);
     });
 });
 function ChangeStatus(id, status) {
