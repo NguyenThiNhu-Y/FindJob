@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using FindJob.ManageCandidates.Dtos;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
@@ -13,6 +14,6 @@ namespace FindJob.ManageCandidates
             CreateUpdateManageCandidateDto,
             CreateUpdateManageCandidateDto>
     {
-
+        Task<int[]> getAllUser();
     }
 }
