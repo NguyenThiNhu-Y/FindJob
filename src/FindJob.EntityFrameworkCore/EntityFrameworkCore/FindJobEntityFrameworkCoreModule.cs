@@ -1,3 +1,4 @@
+using FindJob.Employers;
 using FindJob.ManageCandidates;
 using FindJob.Notifies;
 using FindJob.CVs;
@@ -49,6 +50,7 @@ namespace FindJob.EntityFrameworkCore
                 options.AddRepository<CV, CVRepository>();
                 options.AddRepository<Notify, NotifyRepository>();
                 options.AddRepository<ManageCandidate, ManageCandidateRepository>();
+                options.AddRepository<Employer, EmployerRepository>();
             });
 
             Configure<AbpDbContextOptions>(options =>

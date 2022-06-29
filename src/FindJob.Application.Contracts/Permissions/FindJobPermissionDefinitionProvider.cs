@@ -39,15 +39,20 @@ namespace FindJob.Permissions
             notifyPermission.AddChild(FindJobPermissions.Notify.Update, L("Permission:Update"));
             notifyPermission.AddChild(FindJobPermissions.Notify.Delete, L("Permission:Delete"));
 
-            var employerPermission = myGroup.AddPermission(FindJobPermissions.Employer.Default, L("Permission:Employer"));
-            employerPermission.AddChild(FindJobPermissions.Employer.Create, L("Permission:Create"));
-            employerPermission.AddChild(FindJobPermissions.Employer.Update, L("Permission:Update"));
-            employerPermission.AddChild(FindJobPermissions.Employer.Delete, L("Permission:Delete"));
+            //var employerPermission = myGroup.AddPermission(FindJobPermissions.Employer.Default, L("Permission:Employer"));
+            //employerPermission.AddChild(FindJobPermissions.Employer.Create, L("Permission:Create"));
+            //employerPermission.AddChild(FindJobPermissions.Employer.Update, L("Permission:Update"));
+            //employerPermission.AddChild(FindJobPermissions.Employer.Delete, L("Permission:Delete"));
 
             var manageCandidatePermission = myGroup.AddPermission(FindJobPermissions.ManageCandidate.Default, L("Permission:ManageCandidate"));
             manageCandidatePermission.AddChild(FindJobPermissions.ManageCandidate.Create, L("Permission:Create"));
             manageCandidatePermission.AddChild(FindJobPermissions.ManageCandidate.Update, L("Permission:Update"));
             manageCandidatePermission.AddChild(FindJobPermissions.ManageCandidate.Delete, L("Permission:Delete"));
+
+            var employerPermission = myGroup.AddPermission(FindJobPermissions.Employer.Default, L("Permission:Employer"));
+            employerPermission.AddChild(FindJobPermissions.Employer.Create, L("Permission:Create"));
+            employerPermission.AddChild(FindJobPermissions.Employer.Update, L("Permission:Update"));
+            employerPermission.AddChild(FindJobPermissions.Employer.Delete, L("Permission:Delete"));
         }
 
         private static LocalizableString L(string name)

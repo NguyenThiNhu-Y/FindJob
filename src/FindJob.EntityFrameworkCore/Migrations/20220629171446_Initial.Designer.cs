@@ -11,8 +11,8 @@ using Volo.Abp.EntityFrameworkCore;
 namespace FindJob.Migrations
 {
     [DbContext(typeof(FindJobDbContext))]
-    [Migration("20220625054340_AddedManageCandidate")]
-    partial class AddedManageCandidate
+    [Migration("20220629171446_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -85,6 +85,12 @@ namespace FindJob.Migrations
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompanyName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("datetime2")

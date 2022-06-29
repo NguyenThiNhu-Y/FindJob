@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,5 +12,21 @@ namespace FindJob.Employers
         public Guid IdUser { get; set; }
         public string CompanyName { get; set; }
         public string Address { get; set; }
+
+        protected Employer()
+        {
+        }
+
+        public Employer(
+            Guid id,
+            Guid idUser,
+            string companyName,
+            string address
+        ) : base(id)
+        {
+            IdUser = idUser;
+            CompanyName = companyName;
+            Address = address;
+        }
     }
 }

@@ -90,6 +90,8 @@
     "ApprovalPost": "Phê duyệt bài tuyển dụng",
     "UnApprovalPost": "Bỏ phê duyệt bài tuyển dụng",
     "ApprovalCV": "Duyệt hồ sơ",
-    "UnApprovalCV": "Bỏ duyệt hồ sơ"
+    "UnApprovalCV": "Bỏ duyệt hồ sơ",
+    "EmployerCompanyName": "Tên nhà tuyển dụng",
+    "EmployerAddress": "Địa chỉ"
   }
 }

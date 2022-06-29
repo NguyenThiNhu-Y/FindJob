@@ -72,16 +72,17 @@ namespace FindJob.Web.Menus
                     new ApplicationMenuItem(FindJobMenus.Notify, l["Menu:Notify"], "/Notifies/Notify")
                 );
             }
-            if (await context.IsGrantedAsync(FindJobPermissions.Employer.Default))
-            {
-                context.Menu.AddItem(
-                    new ApplicationMenuItem(FindJobMenus.Employer, l["Menu:Employer"], "/Employers/Employer")
-                );
-            }
+            
             if (await context.IsGrantedAsync(FindJobPermissions.ManageCandidate.Default))
             {
                 context.Menu.AddItem(
                     new ApplicationMenuItem(FindJobMenus.ManageCandidate, l["Menu:ManageCandidate"], "/ManageCandidates/ManageCandidate")
+                );
+            }
+            if (await context.IsGrantedAsync(FindJobPermissions.Employer.Default))
+            {
+                context.Menu.AddItem(
+                    new ApplicationMenuItem(FindJobMenus.Employer, l["Menu:Employer"], "/Employers/Employer")
                 );
             }
         }

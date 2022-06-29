@@ -84,6 +84,8 @@
     "ManageCandidateStatus": "ManageCandidateStatus",
     "CreateManageCandidate": "CreateManageCandidate",
     "EditManageCandidate": "EditManageCandidate",
-    "ManageCandidateDeletionConfirmationMessage": "Are you sure to delete the manageCandidate {0}?"
+    "ManageCandidateDeletionConfirmationMessage": "Are you sure to delete the manageCandidate {0}?",
+    "EmployerCompanyName": "EmployerCompanyName",
+    "EmployerAddress": "EmployerAddress"
   }
 }
