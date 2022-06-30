@@ -91,7 +91,7 @@ namespace FindJob.Web.Pages.CVs.CV
             var field = (await _fieldRepository.FindAsync(cv.IdField)).Name;
             CreateUpdateNotifyDto notify = new CreateUpdateNotifyDto
             {
-                Content = NotifyConstants.NotifyConsts + field,
+                Content = NotifyConstants.NotifyConsts,
                 IdCV = cv.Id,
                 Status = false
             } ;

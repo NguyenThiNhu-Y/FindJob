@@ -19,10 +19,13 @@
 @section scripts
 {
     <abp-script src="/Pages/ManageCandidates/ManageCandidate/index.js" />
+
 }
 @section styles
 {
-    <abp-style src="/Pages/ManageCandidates/ManageCandidate/index.css"/>
+    <abp-style src="/Pages/ManageCandidates/ManageCandidate/index.css" />
+    <link href="~/CSS/Style.css" rel="stylesheet" />
+
 }
 
 <abp-card>
@@ -31,18 +34,18 @@
             <abp-column size-md="_6">
                 <abp-card-title>@L["ManageCandidate"]</abp-card-title>
             </abp-column>
-            <abp-column size-md="_6" class="text-end">
-			    @if (await Authorization.IsGrantedAsync(FindJobPermissions.ManageCandidate.Create))
+            @*<abp-column size-md="_6" class="text-end">
+                @if (await Authorization.IsGrantedAsync(FindJobPermissions.ManageCandidate.Create))
                 {
-                <abp-button id="NewManageCandidateButton"
-                            text="@L["CreateManageCandidate"].Value"
-                            icon="plus"
-                            button-type="Primary" style="float:right"/>
+                    <abp-button id="NewManageCandidateButton"
+                                text="@L["CreateManageCandidate"].Value"
+                                icon="plus"
+                                button-type="Primary" style="float:right" />
                 }
-            </abp-column>
+            </abp-column>*@
         </abp-row>
     </abp-card-header>
     <abp-card-body>
-        <abp-table striped-rows="true" id="ManageCandidateTable" class="nowrap"/>
+        <abp-table striped-rows="true" id="ManageCandidateTable" class="nowrap" />
     </abp-card-body>
 </abp-card>

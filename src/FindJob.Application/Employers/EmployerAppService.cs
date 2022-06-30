@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using FindJob.Posts;
 using System.Collections.Generic;
 using Volo.Abp.Domain.Repositories;
+using Volo.Abp.Identity;
 
 namespace FindJob.Employers
 {
@@ -21,17 +22,22 @@ namespace FindJob.Employers
 
         private readonly IEmployerRepository _repository;
         private readonly IPostRepository _postRepository;
+        private readonly IIdentityUserRepository _userRepository;
         
         
-        public EmployerAppService(IEmployerRepository repository, IPostRepository postRepository) : base(repository)
+        public EmployerAppService(
+            IEmployerRepository repository, 
+            IPostRepository postRepository,
+            IIdentityUserRepository userRepository) : base(repository)
         {
             _repository = repository;
             _postRepository = postRepository;
+            _userRepository = userRepository;
         }
 
-        public async Task<string[]> top3Employer()
+        public async Task<string[]> getTop3Employer()
         {
-            var allEmployer = await _postRepository.GetListAsync();
+            var allEmployer = await _repository.GetListAsync();
             var allPost = await _postRepository.GetListAsync();
             List<int> listCount = new List<int>();
             foreach(var employer in allEmployer)
@@ -39,7 +45,7 @@ namespace FindJob.Employers
                 var count = 0;
                 foreach(var post in allPost)
                 {
-                    if(post.IdUser == employer.Id)
+                    if(post.IdUser == employer.IdUser)
                     {
                         count++;
                     }
@@ -49,20 +55,27 @@ namespace FindJob.Employers
             listCount.Sort();
             var arr = listCount.ToArray();
             string[] rs = new string[3];
-            int i = 0;
             foreach (var employer in allEmployer)
             {
                 var count = 0;
                 foreach (var post in allPost)
                 {
-                    if (post.IdUser == employer.Id)
+                    if (post.IdUser == employer.IdUser)
                     {
                         count++;
                     }
                 }
-                if(count==arr[listCount.Count-1] || count == arr[listCount.Count - 2] || count == arr[listCount.Count - 3])
+                if(count==arr[listCount.Count-1])
                 {
-                    rs[i++] = employer.Id.ToString();
+                    rs[0] = employer.CompanyName;
+                }
+                if(count==arr[listCount.Count-2])
+                {
+                    rs[1] = employer.CompanyName;
+                }
+                if(count==arr[listCount.Count-3])
+                {
+                    rs[2] = employer.CompanyName;
                 }
             }
             return rs;
@@ -79,28 +92,16 @@ namespace FindJob.Employers
 
             List<EmployerDto> EmployersDto = new List<EmployerDto>();
 
-            foreach (var item in EmployersDto)
+            foreach (var item in Employers)
             {
                 EmployerDto EmployerDto = new EmployerDto();
                 EmployerDto.Id = item.Id;
                 EmployerDto.IdUser = item.IdUser;
                 EmployerDto.CompanyName = item.CompanyName;
                 EmployerDto.Address = item.Address;
-                //if (item.IdField != Guid.Empty)
-                //{
-                //    EmployerDto.FieldName = (await _fieldRepository.FindAsync((Guid)item.IdField)).Name;
-                //}
-                //else
-                //{
-                //    EmployerDto.FieldName = "";
-                //}
-                //if (EmployerDto.IdUser != Guid.Empty)
-                //{
-                //    EmployerDto.FullName = CurrentUser.SurName + " " + CurrentUser.Name;
-                //}
+                var user = await _userRepository.FindAsync(item.IdUser);
+                EmployerDto.Username = user.UserName;
                 EmployersDto.Add(EmployerDto);
-
-
             }
 
             var totalCount = input.Filter == null
@@ -112,6 +113,32 @@ namespace FindJob.Employers
                 totalCount,
                 EmployersDto
             );
+        }
+
+        public async Task<int[]> getNumberTop3Employer()
+        {
+            var allEmployer = await _repository.GetListAsync();
+            var allPost = await _postRepository.GetListAsync();
+            List<int> listCount = new List<int>();
+            foreach (var employer in allEmployer)
+            {
+                var count = 0;
+                foreach (var post in allPost)
+                {
+                    if (post.IdUser == employer.IdUser)
+                    {
+                        count++;
+                    }
+                }
+                listCount.Add(count);
+            }
+            listCount.Sort();
+            var arr = listCount.ToArray();
+            int[] rs = new int[3];
+            rs[0] = arr[listCount.Count - 1];
+            rs[1] = arr[listCount.Count - 2];
+            rs[2] = arr[listCount.Count - 3];
+            return rs;
         }
     }
 }

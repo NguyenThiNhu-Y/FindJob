@@ -14,7 +14,8 @@ namespace FindJob.Employers
             CreateUpdateEmployerDto,
             CreateUpdateEmployerDto>
     {
-        Task<string[]> top3Employer();
+        Task<string[]> getTop3Employer();
+        Task<int[]> getNumberTop3Employer();
         Task<PagedResultDto<EmployerDto>> GetListEmployerAsync(GetInputEmployer input);
 
     }

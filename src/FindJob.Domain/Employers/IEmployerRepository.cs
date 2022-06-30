@@ -13,5 +13,7 @@ namespace FindJob.Employers
             string sorting,
             string filter = null
         );
+
+        Task<Employer> FindEmployerByIdUser(Guid IdUser);
     }
 }

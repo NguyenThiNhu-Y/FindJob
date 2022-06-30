@@ -28,16 +28,20 @@
 <abp-card>
     <abp-card-header>
         <abp-row>
-            <abp-column size-md="_6">
+            <abp-column size-md="_8">
                 <abp-card-title>@L["Employer"]</abp-card-title>
             </abp-column>
-            <abp-column size-md="_6" class="text-end">
-			    @if (await Authorization.IsGrantedAsync(FindJobPermissions.Employer.Create))
+            
+            <abp-column size-md="_4" class="text-end">
+                <form method="POST" asp-page-handler="Export" class="btn-action-top ml-2 mr-3">
+                    <abp-button button-type="Success" class="" style="float:right" type="Submit"><i class="fas fa-file-excel cursor-pointer"></i> @L["ExportExcel"]</abp-button>
+                </form>
+                @if (await Authorization.IsGrantedAsync(FindJobPermissions.Employer.Create))
                 {
-                <abp-button id="NewEmployerButton"
-                            text="@L["CreateEmployer"].Value"
-                            icon="plus"
-                            button-type="Primary" style="float:right"/>
+                    <abp-button id="NewEmployerButton"
+                                text="@L["CreateEmployer"].Value"
+                                icon="plus"
+                                button-type="Primary" style="float:right; margin-right:5px" />
                 }
             </abp-column>
         </abp-row>

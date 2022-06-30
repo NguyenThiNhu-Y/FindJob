@@ -8,5 +8,6 @@ namespace FindJob.CVs.Dtos
     public class GetInputCV : PagedAndSortedResultRequestDto
     {
         public string Filter { get; set; }
+        public Guid? IdField { get; set; }
     }
 }

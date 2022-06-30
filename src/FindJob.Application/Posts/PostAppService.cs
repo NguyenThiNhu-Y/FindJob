@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using FindJob.Employers;
 using FindJob.Fields;
 using FindJob.Permissions;
 using FindJob.Posts.Dtos;
@@ -22,13 +23,22 @@ namespace FindJob.Posts
 
         private readonly IPostRepository _repository;
         private readonly IFieldRepository _fieldRepository;
-        private readonly IdentityUserAppService _userAppServic;
+        private readonly IdentityUserAppService _userAppService;
+        private readonly IIdentityUserRepository _userRepository;
+        private readonly IEmployerRepository _employerRepository;
 
-        public PostAppService(IPostRepository repository, IFieldRepository fieldRepository, IdentityUserAppService userAppService) : base(repository)
+        public PostAppService(
+            IPostRepository repository, 
+            IFieldRepository fieldRepository, 
+            IdentityUserAppService userAppService,
+            IIdentityUserRepository userRepository,
+            IEmployerRepository employerRepository) : base(repository)
         {
             _repository = repository;
             _fieldRepository = fieldRepository;
-            _userAppServic = userAppService;
+            _userAppService = userAppService;
+            _userRepository = userRepository;
+            _employerRepository = employerRepository;
         }
 
 
@@ -41,11 +51,13 @@ namespace FindJob.Posts
                 input.Sorting,
                 input.Filter
             );
-
+            
             List<PostDto> postsDto = new List<PostDto>();
+            List<PostDto> postsEmployerDto = new List<PostDto>();
 
             foreach (var item in posts)
             {
+                
                 PostDto postDto = new PostDto();
                 postDto.Id = item.Id;
                 postDto.IdUser = item.IdUser;
@@ -62,7 +74,16 @@ namespace FindJob.Posts
                 }
                 if(postDto.IdUser != Guid.Empty)
                 {
-                    postDto.FullName = CurrentUser.SurName + " " + CurrentUser.Name;
+                    var user = await _userRepository.FindAsync(postDto.IdUser);
+                    var employer = await _employerRepository.FindEmployerByIdUser(user.Id);
+                    postDto.FullName = employer.CompanyName;
+                }
+                if (CurrentUser.UserName != "admin")
+                {
+                    if(postDto.IdUser == CurrentUser.Id)
+                    {
+                        postsEmployerDto.Add(postDto);
+                    }
                 }
                 postsDto.Add(postDto);
 
@@ -73,18 +94,29 @@ namespace FindJob.Posts
                 ? await _repository.CountAsync()
                 : await _repository.CountAsync(
                     field => field.IdUser.ToString().Contains(input.Filter));
-
+            if (CurrentUser.UserName != "admin")
+            {
+                return new PagedResultDto<PostDto>(
+                    totalCount,
+                    postsEmployerDto
+                );
+            }
             return new PagedResultDto<PostDto>(
                 totalCount,
                 postsDto
             );
         }
 
-        public async Task ChangeStatus(Guid Id)
+        public async Task<bool> ChangeStatus(Guid Id)
         {
+            if(CurrentUser.UserName != "admin")
+            {
+                return false;
+            }
             var post = await _repository.FindAsync(Id);
             post.Status = !post.Status;
             await _repository.UpdateAsync(post);
+            return true;
         }
     } 
 }

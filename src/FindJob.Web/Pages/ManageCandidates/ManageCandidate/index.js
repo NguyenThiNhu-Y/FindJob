@@ -1,75 +1,57 @@
+var l;
+var service;
+var dataTable;
 $(function () {
 
-    var l = abp.localization.getResource('FindJob');
+    l = abp.localization.getResource('FindJob');
 
-    var service = findJob.manageCandidates.manageCandidate;
-    var createModal = new abp.ModalManager(abp.appPath + 'ManageCandidates/ManageCandidate/CreateModal');
-    var editModal = new abp.ModalManager(abp.appPath + 'ManageCandidates/ManageCandidate/EditModal');
+    service = findJob.cVs.cV;
 
-    var dataTable = $('#ManageCandidateTable').DataTable(abp.libs.datatables.normalizeConfiguration({
+    getFilter = function () {
+        return {
+            filter: $("input[name='Search']").val(),
+        };
+    };
+    dataTable = $('#ManageCandidateTable').DataTable(abp.libs.datatables.normalizeConfiguration({
         processing: true,
         serverSide: true,
         paging: true,
         searching: false,
         autoWidth: false,
         scrollCollapse: true,
-        order: [[0, "asc"]],
-        ajax: abp.libs.datatables.createAjax(service.getList),
+        //order: [[0, "asc"]],
+        order: false,
+        ajax: abp.libs.datatables.createAjax(service.getListCV, getFilter),
         columnDefs: [
             {
-                title: l('Actions'),
-                rowAction: {
-                    items:
-                        [
-                            {
-                                text: l('Edit'),
-                                visible: abp.auth.isGranted('FindJob.ManageCandidate.Update'),
-                                action: function (data) {
-                                    editModal.open({ id: data.record.id });
-                                }
-                            },
-                            {
-                                text: l('Delete'),
-                                visible: abp.auth.isGranted('FindJob.ManageCandidate.Delete'),
-                                confirmMessage: function (data) {
-                                    return l('ManageCandidateDeletionConfirmationMessage', data.record.id);
-                                },
-                                action: function (data) {
-                                    service.delete(data.record.id)
-                                        .then(function () {
-                                            abp.notify.info(l('SuccessfullyDeleted'));
-                                            dataTable.ajax.reload();
-                                        });
-                                }
-                            }
-                        ]
+                title: l('Index'),
+                orderable: false,
+                render: function (data, type, row, meta) {
+                    return meta.row + meta.settings._iDisplayStart + 1;
                 }
             },
             {
-                title: l('ManageCandidateIdCV'),
-                data: "idCV"
+                title: l('FullNameCandidate'),
+                data: "fullName"
             },
             {
-                title: l('ManageCandidateIdEmployer'),
-                data: "idEmployer"
+                title: l('FieldName'),
+                data: "fieldName"
             },
+            
             {
-                title: l('ManageCandidateStatus'),
-                data: "status"
+                title: l('CVFileName'),
+                data: "fileName"
             },
+            
+           
         ]
     }));
 
-    createModal.onResult(function () {
-        dataTable.ajax.reload();
-    });
+    
 
-    editModal.onResult(function () {
+    $("input[name='Search'").keyup(function () {
         dataTable.ajax.reload();
-    });
-
-    $('#NewManageCandidateButton').click(function (e) {
-        e.preventDefault();
-        createModal.open();
+        console.log(getFilter);
     });
 });

@@ -11,7 +11,8 @@ namespace FindJob.CVs
             int skipCount,
             int maxResultCount,
             string sorting,
-            string filter = null
+            string filter = null,
+            Guid? idField = null
         );
     }
 }

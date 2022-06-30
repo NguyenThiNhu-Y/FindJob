@@ -19,7 +19,7 @@ namespace FindJob.Notifies
         {
             var dbSet = await GetDbSetAsync();
             return await dbSet
-                
+                .WhereIf(!string.IsNullOrWhiteSpace(filter), x=>x.Content.Contains(filter))
                 //.OrderBy(sorting!=null? sorting: "CreationTime")
                 .Skip(skipCount)
                 .Take(maxResultCount)

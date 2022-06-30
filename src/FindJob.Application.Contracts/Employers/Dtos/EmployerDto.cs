@@ -11,5 +11,6 @@ namespace FindJob.Employers.Dtos
         public string CompanyName { get; set; }
 
         public string Address { get; set; }
+        public string Username { get; set; }
     }
 }

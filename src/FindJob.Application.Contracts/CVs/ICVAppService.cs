@@ -16,5 +16,6 @@ namespace FindJob.CVs
     {
         Task<PagedResultDto<CVDto>> GetListCVAsync(GetInputCV input);
         Task ChangeStatus(Guid Id);
+        Task<int[]> getNumberCV();
     }
 }

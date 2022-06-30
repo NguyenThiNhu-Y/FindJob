@@ -1,4 +1,4 @@
-$(function () {
+﻿$(function () {
 
     var l = abp.localization.getResource('FindJob');
 
@@ -33,7 +33,7 @@ $(function () {
                 data: { content: "content", fieldName: "fieldName", idCV: "idCV"},
                 render: function (data) {
                     
-                    return "<a href='/CVs/CV/DetailModal?Id=" + data.idCV+"'>"+l(data.content) + " " + data.fieldName+"</a>";
+                    return "<a href='/CVs/CV/DetailModal?Id=" + data.idCV+"'>"+ "Bạn có một CV mới về lĩnh vực " + data.fieldName+"</a>";
                 }
             },
             //{

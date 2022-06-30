@@ -13,7 +13,7 @@ namespace FindJob.Employers
         public string CompanyName { get; set; }
         public string Address { get; set; }
 
-        protected Employer()
+        public Employer()
         {
         }
 

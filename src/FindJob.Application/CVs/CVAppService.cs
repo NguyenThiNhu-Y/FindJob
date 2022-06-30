@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using FindJob.Fields;
 using Volo.Abp.Domain.Repositories;
+using Volo.Abp.Identity;
 
 namespace FindJob.CVs
 {
@@ -21,12 +22,15 @@ namespace FindJob.CVs
 
         private readonly ICVRepository _repository;
         private readonly IFieldRepository _fieldRepository;
+        private readonly IIdentityUserRepository _userRepository;
 
 
-        public CVAppService(ICVRepository repository, IFieldRepository fieldRepository) : base(repository)
+
+        public CVAppService(ICVRepository repository, IFieldRepository fieldRepository, IIdentityUserRepository userRepository) : base(repository)
         {
             _repository = repository;
             _fieldRepository = fieldRepository;
+            _userRepository = userRepository;
         }
 
         public async Task<PagedResultDto<CVDto>> GetListCVAsync(GetInputCV input)
@@ -35,7 +39,8 @@ namespace FindJob.CVs
                 input.SkipCount,
                 input.MaxResultCount,
                 input.Sorting,
-                input.Filter
+                input.Filter,
+                input.IdField
             );
 
             List<CVDto> CVsDto = new List<CVDto>();
@@ -59,7 +64,8 @@ namespace FindJob.CVs
                 }
                 if (CVDto.IdUser != Guid.Empty)
                 {
-                    CVDto.FullName = CurrentUser.SurName + " " + CurrentUser.Name;
+                    var user = await _userRepository.FindAsync(CVDto.IdUser);
+                    CVDto.FullName = user.Surname + " " + user.Name;
                 }
                 CVsDto.Add(CVDto);
 
@@ -82,6 +88,53 @@ namespace FindJob.CVs
             var CV = await _repository.FindAsync(Id);
             CV.Status = !CV.Status;
             await _repository.UpdateAsync(CV);
+        }
+
+        public async Task<int[]> getNumberCV()
+        {
+            var allCV = await _repository.GetListAsync();
+            int t1 = 0, t2 = 0, t3 = 0, t4 = 0, t5 = 0, t6 = 0, t7 = 0, t8 = 0, t9 = 0, t10 = 0, t11 = 0, t12 = 0;
+            foreach (var cv in allCV)
+            {
+                if (cv.CreationTime.Year == 2022 && cv.CreationTime.Month == 1)
+                    t1++;
+                if (cv.CreationTime.Year == 2022 && cv.CreationTime.Month == 2)
+                    t2++;
+                if (cv.CreationTime.Year == 2022 && cv.CreationTime.Month == 3)
+                    t3++;
+                if (cv.CreationTime.Year == 2022 && cv.CreationTime.Month == 4)
+                    t4++;
+                if (cv.CreationTime.Year == 2022 && cv.CreationTime.Month == 5)
+                    t5++;
+                if (cv.CreationTime.Year == 2022 && cv.CreationTime.Month == 6)
+                    t6++;
+                if (cv.CreationTime.Year == 2022 && cv.CreationTime.Month == 7)
+                    t7++;
+                if (cv.CreationTime.Year == 2022 && cv.CreationTime.Month == 8)
+                    t8++;
+                if (cv.CreationTime.Year == 2022 && cv.CreationTime.Month == 9)
+                    t9++;
+                if (cv.CreationTime.Year == 2022 && cv.CreationTime.Month == 10)
+                    t10++;
+                if (cv.CreationTime.Year == 2022 && cv.CreationTime.Month == 11)
+                    t11++;
+                if (cv.CreationTime.Year == 2022 && cv.CreationTime.Month == 12)
+                    t12++;
+            }
+            int[] result = new int[12];
+            result[0] = t1;
+            result[1] = t2;
+            result[2] = t3;
+            result[3] = t4;
+            result[4] = t5;
+            result[5] = t6;
+            result[6] = t7;
+            result[7] = t8;
+            result[8] = t9;
+            result[9] = t10;
+            result[10] = t11;
+            result[11] = t12;
+            return result;
         }
     }
 }

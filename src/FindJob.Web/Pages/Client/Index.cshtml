@@ -1,0 +1,1959 @@
+﻿@page
+@model FindJob.Web.Pages.Client.IndexModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <!-- any bug please contact email tangdinhvu1989@gmail.com -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="content-language" content="vi">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#02528E">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VIỆC LÀM ĐÀ NẴNG | TUYỂN DỤNG ĐÀ NẴNG | Mới Nhất Hôm Nay</title>
+    <meta name="description"
+          content="Sàn giao dịch Việc Làm Đà Nẵng, tìm việc làm tại Đà Nẵng mới nhất 2022. Đăng tin tuyển dụng Đà Nẵng miễn phí, hàng ngàn hồ sơ ứng viên chất lượng.">
+    <meta name="keywords"
+          content="VIỆC LÀM ĐÀ NẴNG, TUYỂN DỤNG ĐÀ NẴNG, VIỆC LÀM TẠI ĐÀ NẴNG, TÌM VIỆC LÀM ĐÀ NẴNG, ĐĂNG TIN TUYỂN DỤNG" />
+    <meta itemprop="image" content="https://vieclamdanang.edu.vn/public/upload/logo/logoshare.jpg" />
+    <!-- Mạng xã hội -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://vieclamdanang.edu.vn/public/upload/logo/logoshare.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" itemprop="url" content="https://vieclamdanang.edu.vn/" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:title" itemprop="name" content="VIỆC LÀM ĐÀ NẴNG | TUYỂN DỤNG ĐÀ NẴNG | Mới Nhất Hôm Nay">
+    <meta property="og:description" itemprop="description"
+          content="Sàn giao dịch Việc Làm Đà Nẵng, tìm việc làm tại Đà Nẵng mới nhất 2022. Đăng tin tuyển dụng Đà Nẵng miễn phí, hàng ngàn hồ sơ ứng viên chất lượng." />
+    <meta property="og:image" itemprop="image"
+          content="https://vieclamdanang.edu.vn/public/upload/logo/logoshare.jpg" />
+    <meta property="og:image:width" content="600" />
+    <meta property="og:image:height" content="315" />
+    <meta property="fb:app_id" content="2782516181970787" />
+    <link href="https://cdn.vieclamdanang.edu.vn/" rel="preconnect">
+    <link href="https://googleads.g.doubleclick.net" rel="preconnect">
+    <link href="https://adservice.google.com" rel="preconnect">
+    <link href="https://www.facebook.com" rel="preconnect">
+    <link href="https://partner.googleadservices.com" rel="preconnect">
+    <link href="https://adservice.google.com.vn" rel="preconnect">
+    <link href="https://www.google-analytics.com" rel="preconnect">
+    <link href="https://connect.facebook.net" rel="preconnect">
+    <link href="https://tpc.googlesyndication.com" rel="preconnect">
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/public/upload/logo/apple-touch-icon.png">
+    <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap"
+          rel="preload" as="style">
+    <link rel="stylesheet" href="https://cdn.vieclamdanang.edu.vn/view/vieclam_pc/assets/css/bundle.css?ver=101">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134696818-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-134696818-4');
+    </script>
+</head>
+
+<body>
+    <div class="modal fade modalOveride" id="modalPublic" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-zoom">
+            <div class="modal-content">
+                <div class="modal-body text-center modalLoading">
+                    <div class="lds-ellipsis">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modalViecLam">
+        <div class="modalFull modalFull-bottom" id="divnhs">
+            <div class="modalFull-overlay"></div>
+            <div class="modalFull-body modalFull-container">
+                <div class="modalFull-loading">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="modalFull-close">
+                    <a href="javascript:void(0)" class="closeModalFull">
+                        <i class="fas fa-times"></i>
+                    </a>
+                </div>
+                <div class="modalFull-content preventMouse">
+                </div>
+            </div>
+        </div>
+        <div class="modalFull modalFull-bottom" id="quickViewCV">
+            <div class="modalFull-overlay"></div>
+            <div class="modalFull-body modalFull-container">
+                <div class="modalFull-loading">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="modalFull-close">
+                    <a href="javascript:void(0)" class="closeModalFull">
+                        <i class="fas fa-times"></i>
+                    </a>
+                </div>
+                <div class="modalFull-content preventMouse">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="border-bottom bg-white navbar-main">
+        <!--  Top bar  -->
+        <div class="navbar navbar-expand-md navbar-top py-1">
+            <div class="container justify-content-end">
+
+                <ul class="nav navbar-nav ">
+                    <li>
+                        <a class="registerPopup d-md-flex align-items-center justify-content-center size-08rem text-white transition-03 nav-item_link"
+                           href="javascript:void(0)">
+                            <i class="fas fa-user-plus mr-1 nav-item_link__icon"></i> <span>Đăng ký</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="d-md-flex align-items-center justify-content-center size-08rem text-white transition-03 nav-item_link"
+                           href="/Account/Login">
+                            <i class="fas fa-sign-in-alt mr-1 nav-item_link__icon"></i> <span>Đăng nhập</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <!--  Main bar  -->
+        <div class="navbar navbar-expand-md navbar-bottom">
+            <div class="container">
+                <a class="navbar-brand logo" href="https://vieclamdanang.edu.vn/">
+                    <img alt="VIỆC LÀM ĐÀ NẴNG | TUYỂN DỤNG ĐÀ NẴNG | Mới Nhất Hôm Nay" src="/assets/img/logo/logo.png"
+                         width="140px" height="55px">
+                </a>
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link text-size-normal text-dark fw-600 transition-03" href="/ho-so-ung-vien">
+                            ỨNG VIÊN
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-size-normal text-dark fw-600 transition-03" href="/tao-cv">
+                            TẠO CV
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-size-normal text-dark fw-600 transition-03" href="/viec-lam-tot-nhat">
+                            VIỆC HOT
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-size-normal text-dark fw-600 transition-03"
+                           href="/viec-lam-da-nang-moi-nhat">
+                            VIỆC MỚI NHẤT
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-size-normal text-dark fw-600 transition-03"
+                           href="/viec-lam-ban-thoi-gian">
+                            BÁN THỜI GIAN
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-size-normal text-dark fw-600 transition-03" href="/lienhe">
+                            LIÊN HỆ
+                        </a>
+                    </li>
+                    <li class="nav-item nav-hidden">
+                        <a class="nav-link text-size-normal text-dark fw-600 transition-03 registerPopup"
+                           href="javascript:void(0)">
+                            <i class="fas fa-user-plus mr-1"></i>
+                            ĐĂNG KÝ
+                        </a>
+                    </li>
+                    <li class="nav-item nav-hidden">
+                        <a class="nav-link text-size-normal text-dark fw-600 transition-03 loginPopup"
+                           href="javascript:void(0)">
+                            <i class="fas fa-sign-in-alt mr-1"></i>
+                            ĐĂNG NHẬP
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="modal fade modalOveride" id="modal_register" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-zoom">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">Chọn loại tài khoản muốn đăng ký</div>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="fal fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row row-10">
+                        <div class="col-sm-6">
+                            <div class="modalOverideInner position-relative h-100">
+                                <div class="modalOverideContent position-relative">
+                                    <div class="modalOverideTitle blue-color h5 mb-3">
+                                        Đăng ký ứng viên
+                                    </div>
+                                    <div class="modalOverideList">
+                                        <ul class="list-unstyled mb-0 size-095rem">
+                                            <li>
+                                                <i class="fal fa-check-circle blue-color mr-1"></i>
+                                                + 1.500.000 công việc được cập nhật thường xuyên
+                                            </li>
+                                            <li>
+                                                <i class="fal fa-check-circle blue-color mr-1"></i>
+                                                Ứng tuyển công việc yêu thích HOÀN TOÀN MIỄN PHÍ
+                                            </li>
+                                            <li>
+                                                <i class="fal fa-check-circle blue-color mr-1"></i>
+                                                Hiển thị thông tin hồ sơ với nhà tuyển dụng hàng đầu
+                                            </li>
+                                            <li>
+                                                <i class="fal fa-check-circle blue-color mr-1"></i>
+                                                Nhận bản tiên công việc phù hợp định kỳ
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="modalOverideIcon position-absolute"
+                                     style="background-image: url('/public/upload/icon/register.png')"></div>
+                                <div class="modalOverideButton position-absolute text-center">
+                                    <a class="btn button-theme button-blue fw-500 size-095rem" href="/dang-ky/ung-vien">
+                                        Đăng ký ứng viên
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="modalOverideInner position-relative h-100">
+                                <div class="modalOverideContent position-relative">
+                                    <div class="modalOverideTitle orange-color h5 mb-3">
+                                        Đăng ký nhà tuyển dụng
+                                    </div>
+                                    <div class="modalOverideList">
+                                        <ul class="list-unstyled mb-0 size-095rem">
+                                            <li>
+                                                <i class="fal fa-check-circle orange-color mr-1"></i>
+                                                + 3.000.000 ứng viên tiếp cận thông tin tuyển dụng
+                                            </li>
+                                            <li>
+                                                <i class="fal fa-check-circle orange-color mr-1"></i>
+                                                Không giới hạn tương tác với ứng viên qua hệ thống nhắn tin nội bộ
+                                                MIỄN
+                                                PHÍ
+                                            </li>
+                                            <li>
+                                                <i class="fal fa-check-circle orange-color mr-1"></i>
+                                                Quảng cáo thông tin giúp tin tuyển dụng được phủ rộng trên toàn bộ
+                                                hệ
+                                                thống
+                                            </li>
+                                            <li>
+                                                <i class="fal fa-check-circle orange-color mr-1"></i>
+                                                Quảng cáo công ty trên Fanpage số 1 về việc làm - tuyển dụng
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="modalOverideIcon position-absolute"
+                                     style="background-image: url('/public/upload/icon/register.png')"></div>
+                                <div class="modalOverideButton position-absolute text-center">
+                                    <a class="btn button-theme button-orange fw-500 size-095rem"
+                                       href="/dang-ky/nha-tuyen-dung">
+                                        Đăng ký nhà tuyển dụng
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade modalOveride" id="modal_login" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-zoom">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">Đăng nhập hệ thống</div>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="fal fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row row-10">
+                        <div class="col-sm-6 box-ungvien">
+                            <div class="modalOverideInner position-relative h-100">
+                                <div class="modalOverideContent position-relative">
+                                    <div class="login-title blue-color h5 mb-3">
+                                        Đăng nhập ứng viên
+                                    </div>
+                                    <div class="modalOverideList">
+                                        <ul class="list-unstyled mb-0 size-095rem">
+                                            <li>
+                                                <i class="fal fa-check-circle blue-color mr-1"></i>
+                                                + 1.500.000 công việc được cập nhật thường xuyên
+                                            </li>
+                                            <li>
+                                                <i class="fal fa-check-circle blue-color mr-1"></i>
+                                                Ứng tuyển công việc yêu thích HOÀN TOÀN MIỄN PHÍ
+                                            </li>
+                                            <li>
+                                                <i class="fal fa-check-circle blue-color mr-1"></i>
+                                                Hiển thị thông tin hồ sơ với nhà tuyển dụng hàng đầu
+                                            </li>
+                                            <li>
+                                                <i class="fal fa-check-circle blue-color mr-1"></i>
+                                                Nhận bản tiên công việc phù hợp định kỳ
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="modalOverideIcon position-absolute"
+                                     style="background-image: url('/public/upload/icon/register.png')"></div>
+                                <div class="modalOverideButton position-absolute text-center">
+                                    <a class="btn button-theme button-blue fw-500 size-095rem" id="callUngVien"
+                                       href="javascript:void(0)">
+                                        Đăng nhập ứng viên
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="login-tuyendung col-sm-6">
+                            <div class="modalOverideInner position-relative h-100">
+                                <form action="" class="modalOverideForm frmLogin" name="frm-login-ntd"
+                                      id="frm-login-ntd">
+                                    <input name="typeLogin" value="1" type="hidden">
+                                    <div class="form-input-animation">
+                                        <input name="emailLogin" class="form-text" type="email" required tabindex="1"
+                                               autocomplete="off" id="emailloginNdt">
+                                        <label for="">
+                                            <span>
+                                                <i class="fal fa-envelope"></i>Email đăng nhập
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="form-input-animation">
+                                        <a data-id="passNtd" class="view-password btnViewPass"
+                                           href="javascript:void(0)"><i class="far fa-eye"></i></a>
+                                        <input id="passNtd" name="passLogin" class="form-password" type="password"
+                                               tabindex="2" autocomplete="off">
+                                        <label for=""><span><i class="fal fa-lock"></i>Mật khẩu</span></label>
+                                    </div>
+                                    <div class="modalOverideSubmit mt-5 text-center">
+                                        <button type="submit" class="btn button-theme button-orange g-recaptcha"
+                                                id="btn-dnNtd">
+                                            Đăng nhập nhà tuyển dụng
+                                        </button>
+                                    </div>
+                                    <div class="modalOverideAction size-09rem d-flex align-items-center justify-content-between">
+                                        <div class="text-left">
+                                            <a href="javascript:void(0)" class="quenMK">Quên mật khẩu?</a>
+                                        </div>
+                                        <div class="text-right">
+                                            Bạn chưa có tài khoản? <a href="Đăng ký" class="registerPopup">Đăng ký</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 box-tuyendung">
+                            <div class="modalOverideInner position-relative h-100">
+                                <div class="modalOverideContent position-relative">
+                                    <div class="login-title orange-color h5 mb-3">
+                                        Đăng nhập nhà tuyển dụng
+                                    </div>
+                                    <div class="modalOverideList">
+                                        <ul class="list-unstyled mb-0 size-095rem">
+                                            <li>
+                                                <i class="fal fa-check-circle orange-color mr-1"></i>
+                                                + 3.000.000 ứng viên tiếp cận thông tin tuyển dụng
+                                            </li>
+                                            <li>
+                                                <i class="fal fa-check-circle orange-color mr-1"></i>
+                                                Không giới hạn tương tác với ứng viên qua hệ thống nhắn tin nội bộ
+                                                MIỄN
+                                                PHÍ
+                                            </li>
+                                            <li>
+                                                <i class="fal fa-check-circle orange-color mr-1"></i>
+                                                Quảng cáo thông tin giúp tin tuyển dụng được phủ rộng trên toàn bộ
+                                                hệ
+                                                thống
+                                            </li>
+                                            <li>
+                                                <i class="fal fa-check-circle orange-color mr-1"></i>
+                                                Quảng cáo công ty trên Fanpage số 1 về việc làm - tuyển dụng
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="modalOverideIcon position-absolute"
+                                     style="background-image: url('/public/upload/icon/register.png')"></div>
+                                <div class="modalOverideButton position-absolute text-center">
+                                    <a class="btn button-theme button-orange fw-500 size-095rem" id="callTuyenDung"
+                                       href="javascript:void(0)">
+                                        Đăng nhập nhà tuyển dụng
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="login-ungvien col-sm-6">
+                            <div class="modalOverideInner position-relative h-100">
+                                <form action="" class="modalOverideForm frmLogin" name="frm-login-uv" id="frm-login-uv">
+                                    <input name="typeLogin" value="2" type="hidden">
+                                    <div class="form-input-animation">
+                                        <input name="emailLogin" class="form-text" type="email" required tabindex="1"
+                                               autocomplete="off" id="emailloginUv">
+                                        <label for="">
+                                            <span>
+                                                <i class="fal fa-envelope"></i>Email đăng
+                                                nhập
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="form-input-animation">
+                                        <a data-id="passUv" class="view-password btnViewPass"
+                                           href="javascript:void(0)"><i class="far fa-eye"></i></a>
+                                        <input id="passUv" name="passLogin" class="form-password" type="password"
+                                               tabindex="2" required autocomplete="off">
+                                        <label for=""><span><i class="fal fa-lock"></i>Mật khẩu</span></label>
+                                    </div>
+                                    <div class="modalOverideSubmit mt-5 text-center">
+                                        <button type="submit" class="btn button-theme button-blue g-recaptcha"
+                                                id="bnt-dnUv">
+                                            Đăng nhập ứng viên
+                                        </button>
+                                    </div>
+                                    <div class="modalOverideSubmit mt-5 text-center">
+                                        <div class="row row-5 align-items-center justify-content-center">
+                                            <div class="col-sm-6">
+                                                <a href="javascript:void(0)" class="btn btn-facebook loginfacebook">
+                                                    <i class="fab fa-facebook-f"></i>
+                                                    <span>Đăng nhập bằng Facebook</span>
+                                                </a>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <a href="javascript:void(0)" class="btn btn-google logingoogle">
+                                                    <i class="fab fa-google"></i>
+                                                    <span>Đăng nhập bằng Google</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modalOverideAction size-09rem d-flex align-items-center justify-content-between">
+                                        <div class="text-left">
+                                            <a href="javascript:void(0)" class="quenMK">Quên mật khẩu?</a>
+                                        </div>
+                                        <div class="text-right">
+                                            Bạn chưa có tài khoản? <a href="/dang-ky/ung-vien"
+                                                                      class="registerPopup">Đăng ký</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade modalOveride" id="modal_forgot" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-zoom">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">Quên mật khẩu</div>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="fal fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modalOverideInner position-relative h-100">
+                        <form action="" class="modalOverideForm" id="frmForgotPass">
+                            <div class="form-input-animation">
+                                <input name="email" class="form-text" type="email" required autocomplete="off"
+                                       id="email-reset">
+                                <label for="">
+                                    <span><i class="fal fa-envelope"></i>Email đăng nhập</span>
+                                </label>
+                            </div>
+                            <div class="modalOverideSubmit mt-5 text-center">
+                                <button type="submit" id="btnSubResetPass"
+                                        class="btn button-theme button-blue btnSub g-recaptcha">
+                                    Reset mật khẩu
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade modalOveride" id="modal_doiDiem" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-zoom">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">Đổi điểm</div>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="fal fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modalOverideInner position-relative h-100">
+                        <div class="alert" id="messageDoiDiem" style="display:none;">
+                            <!-- Show thông báo: -->
+                            <!-- Có sử dụng id, khi nào xài thì xài funtion show() của jquery -->
+                            <!-- Thêm class trạng thái alert vào: alert-success, alert-danger, alert-warning... (nhớ giữ lại class alert)-->
+                            <!-- Bạn cần tối thiểu 10 điểm -->
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <p class="mb-0" id="sodu">Số dư: <b></b> <sup>đ</sup></p>
+                            <p class="mb-0" id="sodiem">Điểm hiện có: <b></b></p>
+                        </div>
+                        <form action="" class="modalOverideForm" id="frmDoiDiem">
+
+                            <div class="form-input-animation">
+                                <input name="number-point" class="form-text valid" type="number" required
+                                       autocomplete="off" id="number-point">
+                                <label for="number-point">
+                                    <span>Số điểm cần đổi</span>
+                                </label>
+                            </div>
+                            <div>
+                                <input type="hidden" value="1" name="phiHs" id="phiHs">
+                                <input type="hidden" value="" name="ungvien_id" id="ungvien_id">
+                                <label for="" id="thanhtien"></label>
+                            </div>
+                            <div class="modalOverideSubmit mt-2 text-center">
+                                <button type="submit" class="btn button-theme button-blue btnSub" id="btn-doidiem">
+                                    Đổi
+                                    điểm
+                                </button>
+                            </div>
+                            <div class="mt-2 divNt text-center" style="display: none">
+                                <a href="javascript: void(0)" id="showModalNapTien">
+                                    Số dư không đủ, nạp thêm số dư vào tài khoản để tiếp tục
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="search-bar position-relative overflow-hidden mb-3">
+        <form name="frmSearch" id="frmSearch">
+            <div class="container">
+                <div class="search-inner">
+                    <div class="row row-5 align-items-center">
+                        <div class="col-md-4">
+                            <div class="form-group position-relative mb-0 noidung">
+                                <input type="text" class="form-control rounded-0 transition-03"
+                                       placeholder="Tiêu đề công việc, vị trí..." value="" id="searchStr">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="row row-5 align-items-center">
+                                <div class="col-md-5">
+                                    <div class="form-group position-relative mb-0 nganhnghe">
+                                        <select class="form-control select2 vieclam-select2 rounded-0 transition-03"
+                                                name="searchNN" id="searchNN"
+                                                data-placeholder="Lọc theo ngành nghề" size="1">
+                                            @foreach (var item in Model.ListIdParent)
+                                            {
+                                                <option class="option-items size-085rem" value="@item.Value">
+                                                    @item.Text
+                                                </option>
+                                            }
+
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group position-relative mb-0 diadiem">
+                                        <select class="form-control select2 vieclam-select2 rounded-0 transition-03"
+                                                name="" id="searchDD" data-placeholder="Lọc theo địa điểm"
+                                                size="1">
+                                            <option class="option-items size-085rem" value="-1">
+                                                Địa điểm - Tất cả
+                                            </option>
+                                            <option class="option-items size-085rem" value="13">
+                                                Đà Nẵng
+                                            </option>
+                                            <option class="option-items size-085rem" value="58">
+                                                Quảng Nam
+                                            </option>
+                                            <option class="option-items size-085rem" value="59">
+                                                Quảng Ngãi
+                                            </option>
+                                            <option class="option-items size-085rem" value="67">
+                                                Thừa Thiên Huế
+                                            </option>
+                                            <option class="option-items size-085rem" value="30">
+                                                Bình Định
+                                            </option>
+                                            <option class="option-items size-085rem" value="56">
+                                                Phú Yên
+                                            </option>
+                                            <option class="option-items size-085rem" value="45">
+                                                Khánh Hòa
+                                            </option>
+                                            <option class="option-items size-085rem" value="54">
+                                                Ninh Thuận
+                                            </option>
+                                            <option class="option-items size-085rem" value="32">
+                                                Bình Thuận
+                                            </option>
+                                            <option class="option-items size-085rem" value="57">
+                                                Quảng Bình
+                                            </option>
+                                            <option class="option-items size-085rem" value="61">
+                                                Quảng Trị
+                                            </option>
+                                            <option class="option-items size-085rem" value="40">
+                                                Hà Tĩnh
+                                            </option>
+                                            <option class="option-items size-085rem" value="52">
+                                                Nghệ An
+                                            </option>
+                                            <option class="option-items size-085rem" value="66">
+                                                Thanh Hóa
+                                            </option>
+                                            <option class="option-items size-085rem" value="37">
+                                                Gia Lai
+                                            </option>
+                                            <option class="option-items size-085rem" value="46">
+                                                Kon Tum
+                                            </option>
+                                            <option class="option-items size-085rem" value="34">
+                                                Đăk Lắc
+                                            </option>
+                                            <option class="option-items size-085rem" value="35">
+                                                Đăk Nông
+                                            </option>
+                                            <option class="option-items size-085rem" value="50">
+                                                Lâm Đồng
+                                            </option>
+                                            <option class="option-items size-085rem" value="10">
+                                                Hà Nội
+                                            </option>
+                                            <option class="option-items size-085rem" value="16">
+                                                Hồ Chí Minh
+                                            </option>
+                                            <option class="option-items size-085rem" value="1">
+                                                Cần Thơ
+                                            </option>
+                                            <option class="option-items size-085rem" value="8">
+                                                Hậu Giang
+                                            </option>
+                                            <option class="option-items size-085rem" value="7">
+                                                Đồng Tháp
+                                            </option>
+                                            <option class="option-items size-085rem" value="2">
+                                                Vĩnh Long
+                                            </option>
+                                            <option class="option-items size-085rem" value="3">
+                                                An Giang
+                                            </option>
+                                            <option class="option-items size-085rem" value="9">
+                                                Kiên Giang
+                                            </option>
+                                            <option class="option-items size-085rem" value="11">
+                                                Sóc Trăng
+                                            </option>
+                                            <option class="option-items size-085rem" value="4">
+                                                Bạc Liêu
+                                            </option>
+                                            <option class="option-items size-085rem" value="6">
+                                                Cà Mau
+                                            </option>
+                                            <option class="option-items size-085rem" value="12">
+                                                Tiền Giang
+                                            </option>
+                                            <option class="option-items size-085rem" value="5">
+                                                Bến Tre
+                                            </option>
+                                            <option class="option-items size-085rem" value="14">
+                                                Trà Vinh
+                                            </option>
+                                            <option class="option-items size-085rem" value="15">
+                                                Long An
+                                            </option>
+                                            <option class="option-items size-085rem" value="20">
+                                                Đồng Nai
+                                            </option>
+                                            <option class="option-items size-085rem" value="26">
+                                                Bà Rịa - Vũng Tàu
+                                            </option>
+                                            <option class="option-items size-085rem" value="27">
+                                                Bắc Giang
+                                            </option>
+                                            <option class="option-items size-085rem" value="28">
+                                                Bắc Ninh
+                                            </option>
+                                            <option class="option-items size-085rem" value="29">
+                                                Bình Dương
+                                            </option>
+                                            <option class="option-items size-085rem" value="31">
+                                                Bình Phước
+                                            </option>
+                                            <option class="option-items size-085rem" value="33">
+                                                Cao Bằng
+                                            </option>
+                                            <option class="option-items size-085rem" value="36">
+                                                Điện Biên
+                                            </option>
+                                            <option class="option-items size-085rem" value="38">
+                                                Hà Giang
+                                            </option>
+                                            <option class="option-items size-085rem" value="39">
+                                                Hà Nam
+                                            </option>
+                                            <option class="option-items size-085rem" value="41">
+                                                Hải Dương
+                                            </option>
+                                            <option class="option-items size-085rem" value="42">
+                                                Hải Phòng
+                                            </option>
+                                            <option class="option-items size-085rem" value="43">
+                                                Hòa Bình
+                                            </option>
+                                            <option class="option-items size-085rem" value="44">
+                                                Hưng Yên
+                                            </option>
+                                            <option class="option-items size-085rem" value="47">
+                                                Lai Châu
+                                            </option>
+                                            <option class="option-items size-085rem" value="48">
+                                                Lạng Sơn
+                                            </option>
+                                            <option class="option-items size-085rem" value="49">
+                                                Lào Cai
+                                            </option>
+                                            <option class="option-items size-085rem" value="51">
+                                                Nam Định
+                                            </option>
+                                            <option class="option-items size-085rem" value="53">
+                                                Ninh Bình
+                                            </option>
+                                            <option class="option-items size-085rem" value="55">
+                                                Phú Thọ
+                                            </option>
+                                            <option class="option-items size-085rem" value="60">
+                                                Quảng Ninh
+                                            </option>
+                                            <option class="option-items size-085rem" value="62">
+                                                Sơn La
+                                            </option>
+                                            <option class="option-items size-085rem" value="63">
+                                                Tây Ninh
+                                            </option>
+                                            <option class="option-items size-085rem" value="64">
+                                                Thái Bình
+                                            </option>
+                                            <option class="option-items size-085rem" value="65">
+                                                Thái Nguyên
+                                            </option>
+                                            <option class="option-items size-085rem" value="68">
+                                                Tuyên Quang
+                                            </option>
+                                            <option class="option-items size-085rem" value="69">
+                                                Vĩnh Phúc
+                                            </option>
+                                            <option class="option-items size-085rem" value="70">
+                                                Yên Bái
+                                            </option>
+                                            <option class="option-items size-085rem" value="17">
+                                                Miền Bắc
+                                            </option>
+                                            <option class="option-items size-085rem" value="18">
+                                                Miền Trung
+                                            </option>
+                                            <option class="option-items size-085rem" value="19">
+                                                Miền Nam
+                                            </option>
+                                            <option class="option-items size-085rem" value="71">
+                                                Khác
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group position-relative mb-0">
+                                        <button type="submit"
+                                                class="form-control rounded-0 btn bg-orange transition-03">
+                                            <i class="fal fa-search"></i>Tìm
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-5 mt-2">
+                        <div class="col-md-8">
+                            <div class="search-desc">
+                                <b>Sàn Giao Dịch Việc Làm Đà Nẵng</b>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-right d-flex align-items-center justify-content-end">
+                            <div class="search-reset">
+                                <a href="javascript:void(0)" style="display:none;" class="text-white" id="reset-search">
+                                    <i class="fas fa-redo-alt"></i> Reset
+                                </a>
+                            </div>
+                            <div class="search-action ml-3">
+                                <a href="#expandSearch" id="callCollapse" data-toggle="collapse">
+                                    <i class="far fa-angle-down"></i>
+                                    Tìm kiếm nâng cao
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="expandSearch" class="collapse">
+                        <div class="row row-5 mt-2">
+                            <!--
+                            <div class="col-md-3">
+                                <div class="form-group position-relative mb-0 time">
+                                    <select class="form-control rounded-0 transition-03" name="time"
+                                            id="searchTime">
+                                        <option value="-1">Lọc theo thời gian</option>
+                                                                                    <option value="1" >
+                                                    24h giờ qua											</option>
+                                                                                        <option value="7" >
+                                                    7 ngày qua											</option>
+                                                                                        <option value="14" >
+                                                    14 ngày qua											</option>
+                                                                                        <option value="30" >
+                                                    30 ngày qua											</option>
+                                                                            </select>
+                                </div>
+                            </div>
+                            -->
+                            <div class="col-md-3">
+                                <div class="form-group position-relative mb-0 salary">
+                                    <select class="form-control rounded-0 transition-03 vieclam-select2 select2"
+                                            name="salary" id="searchSalary" data-placeholder="Lọc theo mức lương">
+                                        <option value="-1">Lọc theo mức lương</option>
+                                        <option value="1">Thỏa thuận</option>
+                                        <option value="2">Dưới 3 triệu</option>
+                                        <option value="3">3 - 5 triệu</option>
+                                        <option value="4">5 - 7 triệu</option>
+                                        <option value="5">7 - 10 triệu</option>
+                                        <option value="6">10 - 12 triệu</option>
+                                        <option value="7">12 - 15 triệu</option>
+                                        <option value="8">15 - 20 triệu</option>
+                                        <option value="9">20 - 25 triệu</option>
+                                        <option value="10">25 - 30 triệu</option>
+                                        <option value="11">Trên 30 triệu</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group position-relative mb-0 ranks">
+                                    <select class="form-control rounded-0 transition-03 vieclam-select2 select2"
+                                            name="ranks" multiple id="searchRank" data-placeholder="Lọc theo cấp bậc"
+                                            size="1">
+                                        <!--									<option value="-1">Lọc theo cấp bậc</option>-->
+                                        <option value="1">Sinh viên/ Thực tập sinh</option>
+                                        <option value="2">Nhân viên/ Chuyên viên</option>
+                                        <option value="3">Trưởng nhóm/ Giám sát</option>
+                                        <option value="4">Quản lý</option>
+                                        <option value="5">Điều hành cấp cao</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group position-relative mb-0 type">
+                                    <select class="form-control rounded-0 transition-03 vieclam-select2 select2"
+                                            name="type" multiple id="searchType"
+                                            data-placeholder="Lọc theo loại hình công việc" size="1">
+                                        <!--									<option value="-1">Lọc theo loại hình</option>-->
+                                        <option value="1">
+                                            Toàn thời gian
+                                        </option>
+                                        <option value="2">
+                                            Bán thời gian/ Thời vụ
+                                        </option>
+                                        <option value="3">
+                                            Thực tập
+                                        </option>
+                                        <option value="5">
+                                            Remote - Làm việc từ xa
+                                        </option>
+                                        <option value="4">
+                                            Khác
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group position-relative mb-0 experience">
+                                    <select class="form-control rounded-0 transition-03 vieclam-select2 select2"
+                                            name="experience" multiple id="searchKinhNghiem"
+                                            data-placeholder="Lọc theo kinh nghiệm" size="1">
+                                        <!--									<option value="-1">Lọc theo kinh nghiệm</option>-->
+                                        <option value="1">Không yêu cầu</option>
+                                        <option value="8">Dưới 1 năm</option>
+                                        <option value="2">1 năm</option>
+                                        <option value="3">2 năm</option>
+                                        <option value="4">3 năm</option>
+                                        <option value="5">4 năm</option>
+                                        <option value="6">5 năm</option>
+                                        <option value="7">Trên 5 năm</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <section class="wrapperBanner wrapperBanner-info my-3 position-relative">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="h4 mb-4 mt-2 text-uppercase text-center font-weight-bold blue-hover">
+                        Nhà tuyển dụng hàng đầu
+                    </div>
+                </div>
+            </div>
+            <div class="position-relative swiper swiper-banner overflow-hidden" data-carousel="swiperSlider"
+                 data-items="1" data-direction="horizontal" data-autoplay="3000" data-speed="250" data-loop="true"
+                 data-effect="slide" data-spacebetween="0" data-disableoninteraction="true" data-center="true"
+                 data-initlal="1" data-hoverpause="true">
+                <div class="swiper-container" id="swiperBanner" data-swiper="container">
+                    <div class="swiper-button-prev">
+                        <i class="fal fa-angle-left"></i>
+                    </div>
+                    <div class="swiper-button-next">
+                        <i class="fal fa-angle-right"></i>
+                    </div>
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            
+                            <img class="d-block background-cover swiper-lazy"
+                               src="/assets/img/bg.jpg"
+                               target="_blank" style="padding-top:0px"/>
+                            
+                            <div class="card">
+                                <div class="row no-gutters align-items-stretch">
+                                    <div class="col-lg-2 col-md-3">
+                                        <div class="card-logo">
+                                            <a 
+                                               class="d-block">
+                                                <img class="img-fluid swiper-lazy" height="156" width="156"
+                                                     src="~/assets/img/logobg.png"
+                                                     alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-10 col-md-9">
+                                        <div class="card-body">
+                                            <a href="https://vieclamdanang.edu.vn/khu-nghi-duong-intercontinental-danang-sun-peninsula-resort-thong-tin-tuyen-dung-9899.html"
+                                               class="d-block">
+                                                <div class="card-title">
+                                                    Khu Nghỉ dưỡng InterContinental Danang Sun Peninsula Resort
+                                                </div>
+                                            </a>
+                                            <div class="card-text text-gray">
+                                                Thọ Quang, quận Sơn Trà, Đà Nẵng
+                                            </div>
+                                            <div class="card-list">
+                                                <div class="row mt-3">
+                                                    <div class="col-md-6">
+                                                        <a class="tdAjax text-ellipsis vertical-middle"
+                                                           title="Thợ sơn có tay nghề" data-toggle="tooltip"
+                                                           data-type="td" data-id="30951"
+                                                           href="https://vieclamdanang.edu.vn/khu-nghi-duong-intercontinental-danang-sun-peninsula-resort-tuyen-dung-tho-son-co-tay-nghe-30951.html">
+                                                            Thợ sơn có tay nghề
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <a class="tdAjax text-ellipsis vertical-middle" title="Thợ nề"
+                                                           data-toggle="tooltip" data-type="td" data-id="30950"
+                                                           href="https://vieclamdanang.edu.vn/khu-nghi-duong-intercontinental-danang-sun-peninsula-resort-tuyen-dung-tho-ne-30950.html">
+                                                            Thợ nề
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <a class="tdAjax text-ellipsis vertical-middle" title="Thợ mộc"
+                                                           data-toggle="tooltip" data-type="td" data-id="30948"
+                                                           href="https://vieclamdanang.edu.vn/khu-nghi-duong-intercontinental-danang-sun-peninsula-resort-tuyen-dung-tho-moc-30948.html">
+                                                            Thợ mộc
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <a class="tdAjax text-ellipsis vertical-middle" title="Thợ PU"
+                                                           data-toggle="tooltip" data-type="td" data-id="30947"
+                                                           href="https://vieclamdanang.edu.vn/khu-nghi-duong-intercontinental-danang-sun-peninsula-resort-tuyen-dung-tho-pu-30947.html">
+                                                            Thợ PU
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <a class="tdAjax text-ellipsis vertical-middle"
+                                                           title="Thợ cơ khí" data-toggle="tooltip" data-type="td"
+                                                           data-id="30946"
+                                                           href="https://vieclamdanang.edu.vn/khu-nghi-duong-intercontinental-danang-sun-peninsula-resort-tuyen-dung-tho-co-khi-30946.html">
+                                                            Thợ cơ khí
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <a class="tdAjax text-ellipsis vertical-middle"
+                                                           title="Nhân viên vệ sinh hồ bơi" data-toggle="tooltip"
+                                                           data-type="td" data-id="30945"
+                                                           href="https://vieclamdanang.edu.vn/khu-nghi-duong-intercontinental-danang-sun-peninsula-resort-tuyen-dung-nhan-vien-ve-sinh-ho-boi-30945.html">
+                                                            Nhân viên vệ sinh hồ bơi
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-link mt-2 text-right">
+                                                <a href="https://vieclamdanang.edu.vn/khu-nghi-duong-intercontinental-danang-sun-peninsula-resort-thong-tin-tuyen-dung-9899.html"
+                                                   class="btn button-theme button-orange  btn-small">
+                                                    Xem thêm
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <a class="d-block background-cover swiper-lazy"
+                               data-background="https://cdn.vieclamdanang.edu.vn/public/upload/nhatuyendung/banner/cong-ty-tai-chinh-shb-finance-da-nang5261655437899.jpg"
+                               href="https://vieclamdanang.edu.vn/cong-ty-tai-chinh-shb-finance-da-nang-thong-tin-tuyen-dung-8679.html"
+                               target="_blank">
+                            </a>
+                            <div class="card">
+                                <div class="row no-gutters align-items-stretch">
+                                    <div class="col-lg-2 col-md-3">
+                                        <div class="card-logo">
+                                            <a href="https://vieclamdanang.edu.vn/cong-ty-tai-chinh-shb-finance-da-nang-thong-tin-tuyen-dung-8679.html"
+                                               class="d-block">
+                                                <img class="img-fluid swiper-lazy" height="156" width="156"
+                                                     data-src="https://cdn.vieclamdanang.edu.vn/public/upload/nhatuyendung/105172688174-1635223635.png"
+                                                     alt="">
+                                                <span class="swiper-lazy-preloader"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-10 col-md-9">
+                                        <div class="card-body">
+                                            <a href="https://vieclamdanang.edu.vn/cong-ty-tai-chinh-shb-finance-da-nang-thong-tin-tuyen-dung-8679.html"
+                                               class="d-block">
+                                                <div class="card-title">
+                                                    CÔNG TY TÀI CHÍNH SHB FINANCE ĐÀ NẴNG
+                                                </div>
+                                            </a>
+                                            <div class="card-text text-gray">
+                                                Tầng 5, 324 Nguyễn Hữu Thọ - Khuê Trung - Cẩm Lệ - Đà Nẵng
+                                            </div>
+                                            <div class="card-list">
+                                                <div class="row mt-3">
+                                                    <div class="col-md-6">
+                                                        <a class="tdAjax text-ellipsis vertical-middle"
+                                                           title="Nhân Viên Tư Vấn Tín Dụng" data-toggle="tooltip"
+                                                           data-type="td" data-id="24909"
+                                                           href="https://vieclamdanang.edu.vn/cong-ty-tai-chinh-shb-finance-da-nang-tuyen-dung-nhan-vien-tu-van-tin-dung-24909.html">
+                                                            Nhân Viên Tư Vấn Tín Dụng
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <a class="tdAjax text-ellipsis vertical-middle"
+                                                           title="Nhân viên kinh doanh" data-toggle="tooltip"
+                                                           data-type="td" data-id="30708"
+                                                           href="https://vieclamdanang.edu.vn/cong-ty-tai-chinh-shb-finance-da-nang-tuyen-dung-nhan-vien-kinh-doanh-30708.html">
+                                                            Nhân viên kinh doanh
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-link mt-2 text-right">
+                                                <a href="https://vieclamdanang.edu.vn/cong-ty-tai-chinh-shb-finance-da-nang-thong-tin-tuyen-dung-8679.html"
+                                                   class="btn button-theme button-orange  btn-small">
+                                                    Xem thêm
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <a class="d-block background-cover swiper-lazy"
+                               data-background="https://cdn.vieclamdanang.edu.vn/public/upload/nhatuyendung/banner/bao-hiem-nhan-tho-aia-exchange-da-nang9551651722679.jpg"
+                               href="https://vieclamdanang.edu.vn/bao-hiem-nhan-tho-aia-exchange-da-nang-thong-tin-tuyen-dung-6772.html"
+                               target="_blank">
+                            </a>
+                            <div class="card">
+                                <div class="row no-gutters align-items-stretch">
+                                    <div class="col-lg-2 col-md-3">
+                                        <div class="card-logo">
+                                            <a href="https://vieclamdanang.edu.vn/bao-hiem-nhan-tho-aia-exchange-da-nang-thong-tin-tuyen-dung-6772.html"
+                                               class="d-block">
+                                                <img class="img-fluid swiper-lazy" height="156" width="156"
+                                                     data-src="https://cdn.vieclamdanang.edu.vn/public/upload/nhatuyendung/bao-hiem-nhan-tho-aia-exchange-da-nang2111651722654.jpg"
+                                                     alt="">
+                                                <span class="swiper-lazy-preloader"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-10 col-md-9">
+                                        <div class="card-body">
+                                            <a href="https://vieclamdanang.edu.vn/bao-hiem-nhan-tho-aia-exchange-da-nang-thong-tin-tuyen-dung-6772.html"
+                                               class="d-block">
+                                                <div class="card-title">
+                                                    Bảo Hiểm Nhân Thọ AIA EXCHANGE ĐÀ NẴNG
+                                                </div>
+                                            </a>
+                                            <div class="card-text text-gray">
+                                                tầng 20,21, số 65 Hải Phòng, phường Thạch Thang, quận Hải Châu, tp Đà
+                                                Nẵng
+                                            </div>
+                                            <div class="card-list">
+                                                <div class="row mt-3">
+                                                    <div class="col-md-6">
+                                                        <a class="tdAjax text-ellipsis vertical-middle"
+                                                           title="Cấp Quản Lý Tập Sự Tiềm Năng" data-toggle="tooltip"
+                                                           data-type="td" data-id="18666"
+                                                           href="https://vieclamdanang.edu.vn/bao-hiem-nhan-tho-aia-exchange-da-nang-tuyen-dung-cap-quan-ly-tap-su-tiem-nang-18666.html">
+                                                            Cấp Quản Lý Tập Sự Tiềm Năng
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <a class="tdAjax text-ellipsis vertical-middle"
+                                                           title="Chuyên Viên Telesale" data-toggle="tooltip"
+                                                           data-type="td" data-id="22424"
+                                                           href="https://vieclamdanang.edu.vn/bao-hiem-nhan-tho-aia-exchange-da-nang-tuyen-dung-chuyen-vien-telesale-22424.html">
+                                                            Chuyên Viên Telesale
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <a class="tdAjax text-ellipsis vertical-middle"
+                                                           title="Chuyên Viên Kinh Doanh" data-toggle="tooltip"
+                                                           data-type="td" data-id="18613"
+                                                           href="https://vieclamdanang.edu.vn/bao-hiem-nhan-tho-aia-exchange-da-nang-tuyen-dung-chuyen-vien-kinh-doanh-18613.html">
+                                                            Chuyên Viên Kinh Doanh
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <a class="tdAjax text-ellipsis vertical-middle"
+                                                           title="Nhân Viên Nhân Sự Phụ Trách Mảng Tuyển Dụng"
+                                                           data-toggle="tooltip" data-type="td" data-id="18638"
+                                                           href="https://vieclamdanang.edu.vn/bao-hiem-nhan-tho-aia-exchange-da-nang-tuyen-dung-nhan-vien-nhan-su-phu-trach-mang-tuyen-dung-18638.html">
+                                                            Nhân Viên Nhân Sự Phụ Trách Mảng Tuyển Dụng
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <a class="tdAjax text-ellipsis vertical-middle"
+                                                           title="Giám Sát Kinh Doanh" data-toggle="tooltip"
+                                                           data-type="td" data-id="24514"
+                                                           href="https://vieclamdanang.edu.vn/bao-hiem-nhan-tho-aia-exchange-da-nang-tuyen-dung-giam-sat-kinh-doanh-24514.html">
+                                                            Giám Sát Kinh Doanh
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-link mt-2 text-right">
+                                                <a href="https://vieclamdanang.edu.vn/bao-hiem-nhan-tho-aia-exchange-da-nang-thong-tin-tuyen-dung-6772.html"
+                                                   class="btn button-theme button-orange  btn-small">
+                                                    Xem thêm
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination text-center w-100 py-3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="wrapperNoLogin my-3">
+        <div class="container">
+            <div class="row-10 row">
+                <div class="col-md-8">
+                    <div class="row row-10">
+                        <div class="col-md-6">
+                            <div class="card h-100 hover-blue transition-03">
+                                <a href="/tao-cv" class="">
+                                    <div class="card-body flex-xy-center flex-column text-center p-2">
+                                        <div class="card-icon blue-color mb-0">
+                                            <i class="fal fa-check-circle"></i>
+                                        </div>
+                                        <p class="card-title blue-color h6 fw-600 mb-0 text-uppercase">Tạo CV ngay</p>
+                                        <p class="card-text size-08rem pt-2">
+                                            Tạo hồ sơ miễn phí, có ngay việc làm ưng
+                                            ý
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 hover-blue transition-03">
+                                <a href="javascript:void(0)" class="loginNhaTuyenDung">
+                                    <div class="card-body flex-xy-center flex-column text-center p-2">
+                                        <div class="card-icon blue-color mb-0">
+                                            <i class="fal fa-clipboard-list"></i>
+                                        </div>
+                                        <p class="card-title blue-color h6 fw-600 mb-0 text-uppercase">
+                                            Đăng tin miễn phí
+                                        </p>
+                                        <p class="card-text size-08rem pt-2">
+                                            Tiếp cận nhanh nhất, với hơn 90 ngàn hồ sơ
+                                            tìm việc
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row row-10 h-100">
+                        <div class="col-md-6">
+                            <div class="card h-100 hover-blue transition-03">
+                                <a href="javascript:void(0)" class="loginPopup">
+                                    <div class="card-body flex-xy-center flex-column text-center p-2">
+                                        <div class="card-icon blue-color mb-0">
+                                            <i class="fal fa-lock-alt"></i>
+                                        </div>
+                                        <p class="card-title blue-color h6 fw-600 mb-0 text-uppercase">
+                                            Đăng nhập
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 hover-blue transition-03">
+                                <a href="/dang-ky/nha-tuyen-dung.html" class="registerPopup">
+                                    <div class="card-body flex-xy-center flex-column text-center p-2">
+                                        <div class="card-icon blue-color mb-0">
+                                            <i class="fal fa-sign-in-alt"></i>
+                                        </div>
+                                        <p class="card-title blue-color h6 fw-600 mb-0 text-uppercase">
+                                            Đăng ký
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <footer class="footer-main blue-background">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-inner pt-4 pb-3 border-bottom">
+                    <div class="row">
+                        <div class="col-md col-12">
+                            <div class="h6 text-white mb-2 fw-700">DÀNH CHO NHÀ TUYỂN DỤNG</div>
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <a class="d-inline-block text-white small"
+                                       href="https://vieclamdanang.edu.vn/ho-so-ung-vien">
+                                        Tìm hồ sơ ứng viên
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="d-inline-block text-white small"
+                                       href="https://vieclamdanang.edu.vn/phi-dang-tin-vip">
+                                        Bảng giá đăng tin VIP
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="d-inline-block text-white small"
+                                       href="https://vieclamdanang.edu.vn/huong-dan">
+                                        Hướng dẫn đăng ký VIP
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="d-inline-block text-white small"
+                                       href="https://vieclamdanang.edu.vn/xac-minh-thong-tin-nha-tuyen-dung">
+                                        Quyền lợi khi xác minh thông tin
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="d-inline-block text-white small"
+                                       href="https://vieclamdanang.edu.vn/lienhe">
+                                        Liên hệ - Tư vấn - Hỗ trợ
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md col-12">
+                            <div class="h6 text-white mb-2 fw-700">DÀNH CHO ỨNG VIÊN</div>
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <a class="d-inline-block text-white small"
+                                       href="https://vieclamdanang.edu.vn/viec-lam-tot-nhat">
+                                        Việc Làm Hot
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="d-inline-block text-white small"
+                                       href="https://vieclamdanang.edu.vn/viec-lam-da-nang-moi-nhat">
+                                        Việc Làm Mới Nhất
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="d-inline-block text-white small" href="https://vieclamdanang.edu.vn/">
+                                        Việc Làm Đà Nẵng
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="d-inline-block text-white small" href="/top-da-nang">
+                                        Tốt Nhất Đà Nẵng
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="d-inline-block text-white small"
+                                       href="https://vieclamdanang.edu.vn/cam-nang-viec-lam">
+                                        Cẩm nang tìm việc
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md col-12">
+                            <div class="h6 text-white mb-2 fw-700">THÔNG TIN LIÊN HỆ</div>
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <a class="d-inline-block text-white small" href="tel:0977785032">
+                                        Đăng tuyển: 09777.85032
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="d-inline-block text-white small" href="tel: 0907818551">
+                                        Tìm việc: 0907.818.551
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="d-inline-block text-white small" href="tel:02926282383">
+                                        Phone: 02926.282.383
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="d-inline-block text-white small" href="https://zalo.me/0977785032">
+                                        Zalo: 0977785032
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="d-inline-block text-white small" href="">
+                                        lienhe@vieclamdanang.edu.vn
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md col-12">
+                            <div class="h6 text-white mb-2 fw-700">Kết nối với Vieclamdanang</div>
+                            <ul class="list-unstyled mb-0">
+                                <li class="d-none">
+                                    <a class=" d-inline-block text-white small icon-footer"
+                                       href="https://www.facebook.com/vieclamdanang.edu.vn">
+                                        <i class="fab fa-facebook-square mr-2"></i>
+                                        Facebook
+                                    </a>
+                                </li>
+                                <li class="d-none">
+                                    <a class=" d-inline-block text-white small icon-footer" href="#">
+                                        <i class="fab fa-youtube mr-2"></i>Youtube
+                                    </a>
+                                </li>
+                                <li class="d-none">
+                                    <a class=" d-inline-block text-white small icon-footer" href="#">
+                                        <i class="fab fa-linkedin mr-2"></i>
+                                        Linkedin
+                                    </a>
+                                </li>
+                                <li class="d-none">
+                                    <a class=" d-inline-block text-white small img-store" href="#">
+                                        <div class="store-chplay"></div>
+                                    </a>
+                                </li>
+                                <li class="d-none">
+                                    <a class=" d-inline-block text-white small img-store" href="#">
+                                        <div class="store-appstore"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="fb-page" data-href="https://www.facebook.com/vieclamdanang.edu.vn"
+                                         data-tabs="timeline" data-width="" data-height="130" data-small-header="false"
+                                         data-adapt-container-width="true" data-hide-cover="false"
+                                         data-show-facepile="false">
+                                        <blockquote cite="https://www.facebook.com/vieclamdanang.edu.vn"
+                                                    class="fb-xfbml-parse-ignore">
+                                            <a href="https://www.facebook.com/vieclamdanang.edu.vn">
+                                                VIỆC LÀM ĐÀ NẴNG |
+                                                TUYỂN DỤNG ĐÀ NẴNG | Mới Nhất Hôm Nay
+                                            </a>
+                                        </blockquote>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-inner pt-3 pb-3">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="footer-shop small fw-700 text-white text-center mb-1">
+                                SÀN GIAO DỊCH VIỆC LÀM ĐÀ NẴNG
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <ul class="d-flex align-items-center justify-content-center small text-white list-unstyled  mb-1">
+                                <li class="pr-4">
+                                    Quản lý bởi Công Ty Cổ Phần Giải Pháp Công Nghệ Vietcore
+                                </li>
+                                <li>
+                                    Địa chỉ: 909 Ngô Quyền, An Hải Bắc, Sơn Trà, Đà Nẵng
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-12">
+                            <ul class="d-flex align-items-center justify-content-center small text-white list-unstyled mb-1">
+                                <li class="pr-4">
+                                    MST: 1801316399
+                                </li>
+                                <li class="pr-4">
+                                    Nơi cấp: Sở Kế Hoạch Và Đầu Tư Thành phố Cần Thơ
+                                </li>
+                                <li class="pr-4">
+                                    Phone:
+                                    <a class="text-white" href="tel:02926282383">
+                                        02926.282.383
+                                    </a>
+                                </li>
+                                <li>
+                                    Email:
+                                    <a class="text-white" href="mailto:lienhe@vieclamdanang.edu.vn">
+                                        lienhe@vieclamdanang.edu.vn
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-12">
+                            <ul class="d-flex align-items-center justify-content-center small text-white list-unstyled">
+                                <li class="pr-4">
+                                    <a class="text-white" href="/public/upload/file/Quy-che-vieclamcantho.pdf">
+                                        Quy chế
+                                        hoạt
+                                        động
+                                    </a>
+                                </li>
+                                <li class="pr-4">
+                                    <a class="text-white" href="/chinh-sach-bao-mat-thong-tin">
+                                        Chính sách bảo mật thông
+                                        tin
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="text-white" href="/co-che-giai-quyet-tranh-chap">
+                                        Cơ chế giải quyết tranh
+                                        chấp
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <a class="d-inline-block img-bct" href="http://online.gov.vn/Home/WebDetails/62047">
+                                    <img class="lazy"
+                                         data-src="https://cdn.vieclamdanang.edu.vn/public/upload/icon/bocongthuong.jpg"
+                                         width="132px" height="50px">
+                                </a>
+                                <a class="d-inline-block img-dmca" href="https://www.dmca.com/r/9701jz8">
+                                    <img alt="" title="" class="lazy"
+                                         data-src="https://cdn.vieclamdanang.edu.vn/public/upload/icon/dmca.png"
+                                         width="87px" height="40px">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <div class="text-center small text-white">
+                                ©Copyright by <a href="https://vietcore.com.vn" class="text-white fw-500">Vietcore</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap"
+          rel="stylesheet">
+    <div id="listActionCustomer">
+        <ul class="list-unstyled mb-0 showNoti">
+            <li class="actionCustomerItem actionChat d-none">
+                <div class="actionCustomerItemMain">
+                    <i class="fas fa-comment-lines"></i>
+                </div>
+                <span class="countNumber chatNumber noti-hide">2</span>
+            </li>
+            <li class="actionCustomerItem actionNoti d-none">
+                <div class="actionCustomerItemMain">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <span class="countNumber notiNumber noti-hide"></span>
+            </li>
+        </ul>
+        <div class="actionCustomerPopup">
+            <div id="popupUser">
+                <div class="chatUserHeader">
+                    <div class="chatFunctions">
+                        <a class="openListFuncs">
+                            <i class="far fa-ellipsis-v"></i>
+                        </a>
+                        <div class="listFuncs">
+                            <a class="funcsItem listChatActive" href="javascript:void(0)">Danh sách tin nhắn</a>
+                            <a class="funcsItem listChatPrevent" href="javascript:void(0)">Danh sách chặn</a>
+                        </div>
+                    </div>
+                    <div class="chatUserTitle text-ellipsis">
+                        <span>Danh sách tin nhắn</span>
+                        <span class="titlePrevent">Danh sách chặn</span>
+                    </div>
+                    <div class="chatUserAction">
+                        <a class="size-1rem closeUser" href="javascript:void(0)">
+                            <i class="fal fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="chatUserBody preventMouse">
+                    <div class="loaderFB p-2">
+                        <img class="img-fluid" src="/public/upload/icon/loading-noti.gif" alt="">
+                        <img class="img-fluid" src="/public/upload/icon/loading-noti.gif" alt="">
+                        <img class="img-fluid" src="/public/upload/icon/loading-noti.gif" alt="">
+                        <img class="img-fluid" src="/public/upload/icon/loading-noti.gif" alt="">
+                    </div>
+                    <ul class="list-unstyled mb-0">
+                    </ul>
+                </div>
+            </div>
+            <div id="popupChat">
+                <div class="chatHeader">
+                    <div class="chatFunctions">
+                        <a class="openListFuncs">
+                            <i class="far fa-ellipsis-v"></i>
+                        </a>
+                        <div class="listFuncs">
+                            <a class="funcsItem viewPersonalLink" href="javascript:void(0)">
+                                Xem trang cá nhân
+                            </a>
+                            <a class="funcsItem preventChat" href="javascript:void(0)" style="display: none">
+                                Chặn tin
+                                nhắn
+                            </a>
+                            <a class="funcsItem unPreventChat" href="javascript:void(0)" style="display: none">
+                                Bỏ chặn
+                                tin nhắn
+                            </a>
+                        </div>
+                    </div>
+                    <div class="chatLogo">
+                        <div class="chatImage">
+                            <img src="/public/upload/icon/chatitem.png">
+                        </div>
+                        <span class="chatOnline"></span>
+                    </div>
+                    <div class="chatTitle text-ellipsis">
+                        Loading ...
+                    </div>
+                    <div class="chatAction">
+                        <a class="size-1rem closeChat" href="javascript:void(0)">
+                            <i class="fal fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="alertHidden">
+                    <span>
+                        Bạn đang ẩn thông tin với người này!
+                    </span>
+                    <span class="btnShowHidden">
+                        Show
+                    </span>
+                </div>
+                <div class="chatBody preventMouse">
+                    <div class="loaderFB p-2">
+                        <img class="img-fluid" src="/public/upload/icon/loading-noti.gif" alt="">
+                        <img class="img-fluid" src="/public/upload/icon/loading-noti.gif" alt="">
+                        <img class="img-fluid" src="/public/upload/icon/loading-noti.gif" alt="">
+                        <img class="img-fluid" src="/public/upload/icon/loading-noti.gif" alt="">
+                    </div>
+                </div>
+                <div class="chatFooter">
+                    <form action="">
+                        <div class="d-flex align-items-end">
+                            <a href="javascript:void(0)" id="callEmoji" class="callEmoji">
+                                <i class="fal fa-grin-beam"></i>
+                            </a>
+                            <textarea name="" id="inputChat" class="inputChat" placeholder="Aa" rows="1"
+                                      maxlength="500"></textarea>
+                            <button type="button" id="sendMessage" class=""><i class="fal fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                    <div class="emoji-float" id="emoji-float" tabindex="-1">
+                        <div class="emoji-tab">
+                            <a class="emoji-tab_item active" data-id="tab-emoji" href="javascript:void(0)">
+                                Emoji
+                            </a>
+                            <a class="emoji-tab_item" data-id="tab-link" href="javascript:void(0)">
+                                Link
+                            </a>
+                        </div>
+                        <div class="emoji-content">
+                            <div class="emoji-content_item" id="tab-emoji">
+                                <div class="emoji-content_body emoji-content_list preventMouse">
+                                    <div class="chat-Iemoji">
+                                        &#x1F600;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F601;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F602;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F923;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F603;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F604;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F605;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F606;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F609;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F60E;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F60B;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F60D;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F618;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F619;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F61A;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F917;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F914;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F611;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F623;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F625;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F62A;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F62B;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F634;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F61B;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F61C;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F61D;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F612;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F613;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F911;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F624;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F61E;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F62D;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F630;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F631;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F635;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F621;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F637;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F590;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x270B;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F44C;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F44D;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F44E;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F44A;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F44B;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F44F;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F450;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F64F;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F91D;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F493;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F494;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x2B50;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F514;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F4DE;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F4BB;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F4B2;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F4B8;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F4B3;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F4C6;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F4F7;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F339;
+                                    </div>
+                                    <div class="chat-Iemoji">
+                                        &#x1F33A;
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="emoji-content_item" style="display: none" id="tab-link">
+                                <div class="emoji-content_body preventMouse">
+                                    <div class="chat-Slink_group" id="chat-comp">
+                                        <div class="chat-Slink_title">
+                                            Chuyên trang tuyển dụng:
+                                        </div>
+                                        <div class="chat-Slink_content">
+
+                                        </div>
+                                    </div>
+                                    <div class="chat-Slink_group" id="chat-news">
+                                        <div class="chat-Slink_title">
+                                            Các tin đang tuyển
+                                        </div>
+                                        <div class="chat-Slink_content">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="popupNoti">
+                <div class="notiHeader">
+                    <p>
+                        Thông báo từ Việc Làm Đà Nẵng
+                    </p>
+                    <a href="javascript:void(0)" class="closeNoti" title="Đóng"><i class="fal fa-times"></i></a>
+                </div>
+                <div class="notiBody preventMouse">
+                    <div class="loaderFB p-2">
+                        <img class="img-fluid" src="/public/upload/icon/loading-noti.gif" alt="">
+                        <img class="img-fluid" src="/public/upload/icon/loading-noti.gif" alt="">
+                        <img class="img-fluid" src="/public/upload/icon/loading-noti.gif" alt="">
+                        <img class="img-fluid" src="/public/upload/icon/loading-noti.gif" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const THEME = 'vieclam_pc';
+        const URL_ROOT = 'https://vieclamdanang.edu.vn/';
+        const _URLNOW = 'https://vieclamdanang.edu.vn/';
+        URLNOW = 'https://vieclamdanang.edu.vn/';
+        const filesizeup = 10485760;
+        const hssizeup = 5242880;
+        const MAX_ATTACH_HSDF = 3;
+        const limitTotalNopHs = 5242880;
+        const usrID = 0;
+        const usrType = 0;
+        const GTAG = "UA-134696818-4";
+        const currentPage = 'home';
+        const FCMPUBLICKEY = "BDoqUi_bkDINugoyNgcsr0s3ay8KDhsgXSSJ-VS_gcsideBQwMoJwuwUT9YLXv1Hu0VC2qkrjdgYj9DRdR8PipY";
+        const CAPTCHASITE = "6Lc1UCgaAAAAAI-aFIeqLY3VMwKDMYcddH0LQsZd";
+        const PHIDIEM = 1000;
+        const DEVICE = 'PC';
+        const _SVRNODE = "https://mxh.vieclamcantho.com.vn:7777/";
+        const isMobile = screen.width <= 768;
+        const ENABLECHAT = 1;
+        sdtUser = '+84';
+        _pushState = true;
+        const myAvatar = "https://vieclamdanang.edu.vn/public/upload/hinhtaikhoan/noimage.jpg";
+        const myName = "Khách";
+        var listTmpHs = {};
+    </script>
+
+    <script type="text/javascript"
+            src="https://cdn.vieclamdanang.edu.vn/view/vieclam_pc/assets/js/bundle.js?ver=101"></script>
+
+
+    <script>
+        callLazy();
+        $(".customScroll").each(function () {
+            callLazy($(this), ".lazy", $(this));
+        })
+        // let urlLastState = "";
+        window.onpopstate = function (y) {
+            location.href = location.href;
+            // console.log(y);
+            // if (y.state) {
+            //
+            // } else {
+            //     if ($("#divnhs").hasClass("modalShow")) {
+            //         console.log(1)
+            //         console.log(location.pathname)
+            //         if (location.href == _URLNOW) {
+            //             console.log(2)
+            //             $("#divnhs .closeModalFull").click();
+            //         } else {
+            //             console.log(3)
+            //             urlLastState = location.href;
+            //             _pushState = false;
+            //             let pattJob = new RegExp("^" + URL_ROOT + ".+-[0-9]+\.html");
+            //             let pattUv = new RegExp("^" + URL_ROOT + ".+-hs[0-9]+\.html");
+            //             if ((pattJob.test(location.href) || pattUv.test(location.href)) && URLNOW != location.href) {
+            //                 $(".tdAjax[href='" + location.href + "']").click();
+            //             }
+            //         }
+            //     }
+            // }
+        }
+    </script>
+    <script data-ad-client="ca-pub-2524335930965646" async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0"
+            nonce="wJyPRq7V"></script>
+    <!--<script async src="https://sp.zalo.me/plugins/sdk.js"></script>-->
+    <script src="https://www.google.com/recaptcha/api.js?onload=CaptchaCallback&render=explicit" async defer>
+    </script>
+    <script>
+        if (typeof initMap !== 'function') {
+            initMap = function () {
+
+            }
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCz3Z8srEZPiwbV3WQOPZvf7uE6Vj9X0Co&libraries=places&callback=initMap"
+            async defer>
+    </script>
+
+
+</body>
+
+</html>

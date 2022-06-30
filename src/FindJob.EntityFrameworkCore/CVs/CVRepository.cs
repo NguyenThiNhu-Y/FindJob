@@ -16,11 +16,11 @@ namespace FindJob.CVs
         {
         }
 
-        public async Task<List<CV>> GetListCVAsync(int skipCount, int maxResultCount, string sorting = null, string filter = null)
+        public async Task<List<CV>> GetListCVAsync(int skipCount, int maxResultCount, string sorting = null, string filter = null, Guid? idField = null)
         {
             var dbSet = await GetDbSetAsync();
             return await dbSet
-                
+                .WhereIf(idField.HasValue, x=>x.IdField==idField)
                 //.OrderBy(sorting != null ? sorting : "CreateDate")
                 .Skip(skipCount)
                 .Take(maxResultCount)

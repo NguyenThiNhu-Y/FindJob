@@ -92,6 +92,15 @@
     "ApprovalCV": "Duyệt hồ sơ",
     "UnApprovalCV": "Bỏ duyệt hồ sơ",
     "EmployerCompanyName": "Tên nhà tuyển dụng",
-    "EmployerAddress": "Địa chỉ"
+    "EmployerAddress": "Địa chỉ",
+    "DoNotPermissionChange": "Bạn không có quyền duyệt bài tuyển dụng",
+    "Warn": "Cảnh báo",
+    "Congratulations": "Duyệt bài thành công",
+    "Search": "Tìm kiếm",
+    "FullNameCandidate": "Tên ứng viên",
+    "IdField": "Loại bài tuyển dụng",
+    "Choose": "Chọn",
+    "Succes": "Thành công",
+    "UserName": "Tên đăng nhập"
   }
 }

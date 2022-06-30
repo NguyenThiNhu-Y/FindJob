@@ -51,6 +51,7 @@ $(function () {
                         [
                             {
                                 text: l('Edit'),
+                                icon: 'fas fa-edit',
                                 visible: abp.auth.isGranted('FindJob.Field.Update'),
                                 action: function (data) {
                                     editModal.open({ id: data.record.id });
@@ -58,6 +59,7 @@ $(function () {
                             },
                             {
                                 text: l('Delete'),
+                                icon:'fas fa-trash-alt',
                                 visible: abp.auth.isGranted('FindJob.Field.Delete'),
                                 confirmMessage: function (data) {
                                     return l('FieldDeletionConfirmationMessage', data.record.id);

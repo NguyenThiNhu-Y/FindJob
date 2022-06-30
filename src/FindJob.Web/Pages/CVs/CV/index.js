@@ -11,7 +11,7 @@ $(function () {
     var detailModal = new abp.ModalManager(abp.appPath + 'CVs/CV/DetailModal');
     getFilter = function () {
         return {
-            filter: $("input[name='Search']").val(),
+            idField: $("select[name='IdField']").val(),
         };
     };
     dataTable = $('#CVTable').DataTable(abp.libs.datatables.normalizeConfiguration({
@@ -33,10 +33,12 @@ $(function () {
                 }
             },
             {
+                orderable: false,
                 title: l('FullName'),
                 data: "fullName"
             },
             {
+                orderable: false,
                 title: l('FieldName'),
                 data: "fieldName"
             },
@@ -49,10 +51,12 @@ $(function () {
             //    data: "idField"
             //},
             {
+                orderable: false,
                 title: l('CVFileName'),
                 data: "fileName"
             },
             {
+                orderable: false,
                 title: l('CVStatus'),
                 data: { status: "status", id: "id" },
                 render: function (data) {
@@ -75,6 +79,8 @@ $(function () {
                         [
                             {
                                 text: l('Edit'),
+                                icon: 'fas fa-edit',
+
                                 visible: abp.auth.isGranted('FindJob.CV.Update'),
                                 action: function (data) {
                                     //editModal.open({ id: data.record.id });
@@ -91,6 +97,8 @@ $(function () {
                             //},
                             {
                                 text: l('Delete'),
+                                icon: 'fas fa-trash-alt',
+
                                 visible: abp.auth.isGranted('FindJob.CV.Delete'),
                                 confirmMessage: function (data) {
                                     return l('CVDeletionConfirmationMessage', data.record.id);
@@ -137,7 +145,7 @@ $(function () {
             });
     });
 
-    $("input[name='Search'").keyup(function () {
+    $("select[name='IdField'").change(function () {
         dataTable.ajax.reload();
         console.log(getFilter);
     });

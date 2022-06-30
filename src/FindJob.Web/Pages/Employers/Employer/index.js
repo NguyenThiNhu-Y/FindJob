@@ -26,8 +26,8 @@ $(function () {
             },
             {
                 orderable: false,
-                title: l('EmployerIdUser'),
-                data: "idUser"
+                title: l('UserName'),
+                data: "username"
             },
             {
                 orderable: false,
@@ -46,6 +46,7 @@ $(function () {
                         [
                             {
                                 text: l('Edit'),
+                                icon: 'fas fa-edit',
                                 visible: abp.auth.isGranted('FindJob.Employer.Update'),
                                 action: function (data) {
                                     editModal.open({ id: data.record.id });
@@ -53,6 +54,7 @@ $(function () {
                             },
                             {
                                 text: l('Delete'),
+                                icon: 'fas fa-trash-alt',
                                 visible: abp.auth.isGranted('FindJob.Employer.Delete'),
                                 confirmMessage: function (data) {
                                     return l('EmployerDeletionConfirmationMessage', data.record.id);

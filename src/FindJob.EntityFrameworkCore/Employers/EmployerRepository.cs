@@ -15,6 +15,12 @@ namespace FindJob.Employers
         {
         }
 
+        public async Task<Employer> FindEmployerByIdUser(Guid IdUser)
+        {
+            var dbSet = await GetDbSetAsync();
+            return await dbSet.Where(x => x.IdUser == IdUser).FirstOrDefaultAsync();
+        }
+
         public async Task<List<Employer>> GetListEmployerAsync(int skipCount, int maxResultCount, string sorting, string filter = null)
         {
             var dbSet = await GetDbSetAsync();

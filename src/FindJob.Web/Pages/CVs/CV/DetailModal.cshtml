@@ -31,7 +31,7 @@
             <abp-select asp-for="ViewModel.IdField" asp-items="Model.ListIdParent" disabled />
             <div class="mb-3">
                 <label class="form-label">@L["FileOld"]</label>
-                @{ var file = "~/Files/" + Model.ViewModel.FileName;}
+                @{ var file = "/Files/" + Model.ViewModel.FileName;}
                 <a href="@file">@Model.ViewModel.FileName</a>
             </div>
             @*<div class="mb-3">

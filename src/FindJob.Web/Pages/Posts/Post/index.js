@@ -41,7 +41,7 @@ $(function () {
             //    data: "idUser"
             //},
             {
-                title: l('FullName'),
+                title: l('EmployerCompanyName'),
                 data: "fullName"
             },
             //{
@@ -79,6 +79,7 @@ $(function () {
                         [
                             {
                                 text: l('Edit'),
+                                icon: 'fas fa-edit',
                                 visible: abp.auth.isGranted('FindJob.Post.Update'),
                                 action: function (data) {
                                     //editModal.open({ id: data.record.id });
@@ -87,6 +88,8 @@ $(function () {
                             },
                             {
                                 text: l('Delete'),
+                                icon: 'fas fa-trash-alt',
+
                                 visible: abp.auth.isGranted('FindJob.Post.Delete'),
                                 confirmMessage: function (data) {
                                     return l('PostDeletionConfirmationMessage', data.record.id);
@@ -143,8 +146,16 @@ function ChangeStatus(id, status) {
 
             if (confirmed) {
                 service.changeStatus(id)
-                abp.message.success(l('Success'), l('Congratulations'));
-                dataTable.ajax.reload();
+                    .then(function (data) {
+                        if (data) {
+                            abp.message.success(l('Congratulations'), l('Notify'));
+                            dataTable.ajax.reload();
+                        }
+                        else {
+                            abp.message.warn(l('DoNotPermissionChange'), l('Warn'))
+                        }
+                    })
+                
             }
             dataTable.ajax.reload();
 
